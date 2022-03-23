@@ -1,0 +1,55 @@
+﻿@model ZoneViewModel
+<div class="container-fluid animatedParent animateOnce">
+
+    <div class="animated fadeInUpShort">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b shadow ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Add Zone</h1>
+                            <h6>Use this page to add a new zone </h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="row my-3 mt-5">
+
+                <div class="col-md-12 ">
+                    <form asp-action="AddZone" asp-controller="WSP" asp-antiforgery="true" method="post">
+                        <div class="card no-b shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Fill In The Details Below To Add A New Zone
+                                </h5>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">Name</label>
+                                            <input id="MinimumFlow"
+                                                   asp-for="Name"
+                                                   placeholder="Enter zone Name"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg  col text-center">
+                                    <i class="icon-save mr-2"> </i>Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

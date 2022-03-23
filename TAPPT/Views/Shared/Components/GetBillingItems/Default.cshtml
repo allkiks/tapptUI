@@ -1,0 +1,143 @@
+﻿@model IEnumerable<BillingItemDownLoadSerializer>
+   
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3 mb-5" id="v-pills-tabContent">
+            <div class="card no-b ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Billing items</h1>
+                            <h6>The table below displays the current billing items</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            @if (Model.Any())
+            {
+                <div class="tab-pane animated fadeInUpShort show active"
+                     id="v-pills-all"
+                     role="tabpanel"
+                     aria-labelledby="v-pills-all-tab">
+                    <div class="row my-3">
+                        <div class="col-md-12">
+                            <div class="card r-0 shadow">
+                                <div class="panel-heading">
+                                    <div class="panel-body panelsetup">
+                                        <h4>Billing items</h4>
+                                        <hr />
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <form>
+
+                                        <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+
+                                            <thead>
+                                                <tr class="no-b">
+
+                                                    <th>
+                                                        <div class="d-none d-lg-block">Name</div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="d-none d-lg-block">Rate</div>
+                                                    </th>
+                                                    @*<th>
+                                                        <div class="d-none d-lg-block">Add</div>
+                                                    </th>*@
+                                                    @*<th>
+                                                        <div class="d-none d-lg-block">view</div>
+                                                    </th>*@
+
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @*<div class="avatar avatar-md mr-3 mb-2 mt-1">
+                                                                    <span class="avatar-letter avatar-letter-i avatar-md circle"></span>
+                                                                </div>*@
+                                                                <div>
+                                                                    @foreach (var item2 in item.Billings)
+                                                                    {
+                                                                        <div>
+                                                                            <strong>@item2.ItemName</strong>
+                                                                        </div>
+                                                                        @*<small>@item2.ItemName</small>*@
+                                                                    }
+
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-none d-lg-block">@item.Rate</div>
+                                                        </td>
+
+                                                        @*<td>
+                                                            <a href="/Setting/AddBillingItem">
+                                                                <i class="icon-plus s-24 ml-5"></i>
+                                                            </a>
+                                                        </td>*@
+
+                                                        @*<td>
+                                                            <a href="/Setting/BillingItems">
+                                                                <i class="icon-eye s-24 ml-2"></i>
+                                                            </a>
+                                                        </td>*@
+
+
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane animated fadeInUpShort"
+                     id="v-pills-buyers"
+                     role="tabpanel"
+                     aria-labelledby="v-pills-buyers-tab">
+                </div>
+            }
+            else
+            {
+                <div class="tab-pane animated fadeInUpShort show active"
+                     id="v-pills-all"
+                     role="tabpanel"
+                     aria-labelledby="v-pills-all-tab">
+                    <div class="row my-3">
+                        <div class="col-md-12">
+                            <div class="card r-0 shadow">
+                                <div style="text-align:center;color:darkblue">
+                                    <P>Nothing here yet</P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane animated fadeInUpShort"
+                     id="v-pills-buyers"
+                     role="tabpanel"
+                     aria-labelledby="v-pills-buyers-tab">
+                </div>
+            }
+
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

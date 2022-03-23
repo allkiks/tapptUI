@@ -1,0 +1,110 @@
+﻿@model IEnumerable<UtlitiesDownloadSerializer>
+
+@if (Model.Any())
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+                <div class="card no-b shadow mb-5">
+
+                    <div class="card-body">
+                        <div class="row my-3 ">
+                            <div class="col-md-12">
+                                <h1>List Of Water Service Providers</h1>
+                                <h6>Water Serice provider transmitting meters list</h6>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card r-0 shadow">
+                            <div class="table-responsive datatablestyle">
+                                <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                    <thead>
+                                        <tr class="no-b">
+                                            <th>
+                                                <div class="d-none d-lg-block">WSP name</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">
+                                                    Meters Transmitting
+                                                </div>
+                                            </th>
+
+                                            <th>
+                                                <div class="d-none d-lg-block">Action</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.Name</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.Count</div>
+                                                </td>
+
+                                                <td>
+                                                    <a href="/Admin/TransmittingList/@item.Id" class="btn ml-5 btn-primary btn-sm">View meters</a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tab-pane animated fadeInUpShort" id="v-pills-buyers" role="tabpanel" aria-labelledby="v-pills-buyers-tab"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="tab-pane animated fadeInUpShort show active"
+                 id="v-pills-all"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-all-tab">
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card r-0 shadow">
+                            <div class="table-responsive">
+                                <div class="relative brand-wrapper sticky b-b p-3">
+                                    <div class="form-group input-group-sm has-right-icon">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card r-0 shadow">
+                            <h1 style="color:black;">Nothing here yet, Please check later..</h1>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tab-pane animated fadeInUpShort"
+                 id="v-pills-buyers"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-buyers-tab"></div>
+        </div>
+    </div>
+}

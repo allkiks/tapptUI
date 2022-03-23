@@ -1,0 +1,116 @@
+﻿@model RevenueManagement
+
+<div class="container-fluid animatedParent animateOnce">
+    <div class="tab-content my-3" id="v-pills-tabContent">
+        <div class="tab-pane animated fadeInUpShort show active"
+             id="v-pills-all"
+             role="tabpanel"
+             aria-labelledby="v-pills-all-tab">
+            <div class="card no-b shadow">
+
+                <div class="card-body mt-1 ">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Revenue Management </h1>
+                            <h6>This page displays revenue collected from the smart meters  </h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card r-0 shadow  mt-4">
+
+                <div class="card-body b-b">
+                    <div class="input-group mb-0 mr-sm-2">
+                        <div class="form-group  m-0">
+
+                            <div class="mt-2">
+
+                            </div>
+
+                            <select name="month" id="month" class="form-control has-right-icon">
+                                <option value="">Please select a water service provider</option>
+                                <option value="EmbuWater">EMBU WATER AND SANITATION COMPANY</option>
+                                <option value="GitaruWater">GITARU SELF HELP WATER PROJECT</option>
+                                <option value="NanyukiWater">NANYUKI WATER AND SEWERAGE COMPANY</option>
+                                <option value="UpepoWsp">UPEPO TEST WSP</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-eq-height my-3 mt-5 ">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header white">
+                            <strong> Revenue Collection</strong>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="row no-gutters">
+
+                                <div class="col-md-3">
+                                    <a href="/Admin/BillsPaidlast24">
+                                        <div class="p-5 mygreentwo text-white">
+                                            <h6 class="font-weight-normal s-14">Total Bills Paid  </h6>
+                                            <h6 class="font-weight-normal s-14">(Current 24 Hours From 12 AM Midnight EAT)  </h6>
+                                            <span class="s-48 font-weight-lighter text-primary">0</span>
+                                            <div class="mb-4">
+                                                @*Oxygen*@
+                                                @*<span class="text-white">
+                                                        <i class="icon icon-arrow_downward"></i> 67%
+                                                    </span>*@
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="p-5 mygreentwo text-white ml-2 ">
+                                        <h6 class="font-weight-normal s-14">Total Bills Paid  </h6>
+                                        <h6 class="font-weight-normal s-14">(Past 24 Hours To 12 AM Midnight EAT) </h6>
+                                        <span class="s-48 font-weight-lighter text-primary">0</span>
+                                        <div class="mb-4">
+                                            @*Oxygen*@
+                                            @*<span class="text-white">
+                                                    <i class="icon icon-arrow_downward"></i> 67%
+                                                </span>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="p-5 mygreentwo text-white ml-2 ">
+                                        <h4>Bills Paid With MPESA</h4>
+                                        <span class="s-48 font-weight-lighter text-primary">0</span>
+                                        <div class="mb-4">
+                                            @*Oxygen*@
+                                            @*<span class="text-white">
+                                                    <i class="icon icon-arrow_downward"></i> 67%
+                                                </span>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="p-5 mygreentwo text-white ml-2 ">
+                                        <h4>Bills Paid From Other Sources</h4>
+                                        <span class="s-48 font-weight-lighter text-primary">0</span>
+                                        <div class="mb-4">
+                                            @*Oxygen*@
+                                            @*<span class="text-white">
+                                                    <i class="icon icon-arrow_downward"></i> 67%
+                                                </span>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

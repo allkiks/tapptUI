@@ -1,0 +1,54 @@
+﻿@model TariffUploadSerializer
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3 mb-5" id="v-pills-tabContent">
+            <div class="card no-b ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Delete Tariff</h1>
+                            <h6>Fill in the form below to delete the tariff</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="animated fadeInUpShort">
+            <div class="row my-3">
+                <div class="col-md-12">
+                    
+                    <form asp-action="DeleteTariff" asp-controller="Setting" method="post"
+                          class="" asp-antiforgery="true">
+                        <div class="card no-b">
+                            <div class="card-body">
+                                <h5 class="card-title">Are You Sure You Want To Delete This Tariff?</h5>
+                                <div class="form-row">
+                                    <div class="form-group m-0 cS-hidden">
+                                        <label asp-for="Id" class="col-form-label s-12">Tariff Name</label>
+                                        <input asp-for="Id" id="ItemName"
+                                               placeholder="Enter New Name"
+                                               class="form-control r-0 light s-12"
+                                               required
+                                               value="@ViewBag.Id"
+                                               type="text" />
+                                        <span asp-validation-for="Id" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-3 offset-md-1 float-right">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn myred btn-danger  pull-right col text-center">
+                                    <i class="icon-trash mr-2"></i>Delete
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

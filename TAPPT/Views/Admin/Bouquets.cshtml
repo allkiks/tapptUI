@@ -1,0 +1,118 @@
+﻿@model IEnumerable<BouquetViewModel>
+@{
+    ViewData["Title"] = "Bouquets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Model.Any())
+{
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="tab-pane animated fadeInUpShort show active"
+                 id="v-pills-all"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-all-tab">
+                <div class="card r-0 no-b shadow ">
+
+                    <div class="card-body ">
+                        <div class="row my-3 ">
+                            <div class="col-md-12">
+                                <h3>List Of Bouquets</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card-body white r-0 shadow">
+                            <div class="panel-heading text-center">
+                                <div class="panel-body text-center panelsetup">
+                                    <h4>Bouquets</h4>
+                                    <hr />
+                                </div>
+                            </div>
+
+                            <div class="table-responsive datatablestyle">
+                                <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                    <thead>
+                                        <tr class="no-b">
+                                            <th>
+                                                <div class="d-none d-lg-block">Bouquet</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">Price (KES)</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">Manage Bouquets</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">Assign Alarms</div>
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.Name</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.Price</div>
+                                                </td>
+                                                <td>
+                                                    <a href="/Admin/ManageBauquet/@item.Id"
+                                                       class="ml-5 btn btn-primary text-mygreen btn-sm">Manage Bouquet</a>
+                                                </td>
+                                                <td>
+                                                    <a href="/Admin/MapAlarms/@item.Id"
+                                                       class="ml-5 btn btn-primary text-mygreen btn-sm">Assign Alarms</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane animated fadeInUpShort"
+                 id="v-pills-buyers"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-buyers-tab"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Bauquet List</h1>
+                            <h6>No Bouquets yet ,<a href="/Admin/AddBouquet"> click here to add a new bouquet </a></h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane animated fadeInUpShort"
+             id="v-pills-buyers"
+             role="tabpanel"
+             aria-labelledby="v-pills-buyers-tab"></div>
+    </div>
+
+}
+

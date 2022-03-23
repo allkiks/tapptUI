@@ -1,0 +1,83 @@
+﻿@model GETWSPDashBoardDownloadSerializer
+@{
+    ViewData["Title"] = "HelP And Support";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid animatedParent animateOnce">
+    <div class="tab-content my-3" id="v-pills-tabContent">
+        <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+
+            <div class="tab-content my-3" id="v-pills-tabContent">
+                <div class="card no-b r-0 shadow">
+                    <div class="card-body">
+                        <div class="row my-3 ">
+                            <div class="col-md-12">
+                                <h3>Meter Location </h3>
+                                @*<h6>This page displays frequently asked questions and a chatbox </h6>*@
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @if (User.FindFirst("Email")?.Value == "admin@embuwater.co.ke")
+            {
+                <div class="card-body white">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <div id="reportContainer"></div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://npmcdn.com/es6-promise@3.2.1"></script>
+<script src="~/assets/js/powerbi.min.js"></script>
+
+
+<script type="text/javascript">
+    // Read embed application token from Model
+    var accessToken = "@ViewBag.Result.EmbedToken.Token";
+
+    // Read embed URL from Model
+    var embedUrl = "@ViewBag.Result.EmbedUrl)";
+
+    // Read report Id from Model
+    var embedReportId = "@ViewBag.Result.Id";
+
+    // Get models. models contains enums that can be used.
+    var models = window['powerbi-client'].models;
+
+    // Embed configuration used to describe the what and how to embed.
+    // This object is used when calling powerbi.embed.
+    // This also includes settings and options such as filters.
+    // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
+    var config = {
+        type: 'report',
+        tokenType: models.TokenType.Embed,
+        accessToken: accessToken,
+        embedUrl: embedUrl,
+        id: embedReportId,
+        permissions: models.Permissions.All,
+        settings: {
+            filterPaneEnabled: true,
+            navContentPaneEnabled: true
+        }
+    };
+
+    $(document).ready(function () {
+        // Get a reference to the embedded report HTML element
+        var reportContainer = $('#reportContainer')[0];
+
+        // Embed the report and display it within the div container.
+        powerbi.embed(reportContainer, config);
+    });
+</script>

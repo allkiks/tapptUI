@@ -1,0 +1,117 @@
+﻿ @model RegisterViewModel
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid animatedParent animateOnce">
+    <div class="tab-content my-3" id="v-pills-tabContent">
+        <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+          
+                <div class="tab-content my-3" id="v-pills-tabContent">
+                    <div class="card no-b shadow">
+                        <div class="card-body">
+                            <div class="row my-3 ">
+                                <div class="col-md-12">
+                                    <h1>Add User</h1>
+                                    <h6>Fill in the form below to add a new user </h6>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+
+                    <div class="col-md-12">
+                        <form asp-action="AddWSPUser" asp-controller="Account" asp-antiforgery="true" role="form">
+                            <div class="card no-b mt-5">
+                                <div class="card-body shadow">
+                                    <h5 class="card-title">Fill In The Details Below To Add A New User</h5>
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4 m-0">
+                                                    <label for="user-id" class="col-form-label s-12">
+                                                        <i class="icon-id-card-o text-mygreen"></i> First Name
+                                                    </label>
+                                                    <input id="user-id"
+                                                           asp-for="FirstName"
+                                                           required
+                                                           placeholder="Enter Users First Name"
+                                                           class="form-control r-0 light s-12 date-picker" type="text">
+                                                </div>
+                                                <div class="form-group col-md-4 m-0">
+                                                    <label for="kra-pin" class="col-form-label s-12">
+                                                        <i class="icon-id-card-o text-mygreen mr-2"></i> Second Name
+                                                    </label>
+                                                    <input id="Kra-pin" placeholder="Enter Users Second Name"
+                                                           asp-for="MiddleName"
+                                                           required
+                                                           class="form-control r-0 light s-12 datePicker"
+                                                           type="text">
+                                                </div>
+                                                <div class="form-group col-md-4 m-0">
+                                                    <label for="kra-pin" class="col-form-label s-12">
+                                                        <i class="icon-id-card-o text-mygreen mr-2"></i>Third Name
+                                                    </label>
+                                                    <input id="Kra-pin" placeholder="Enter Users Third Name"
+                                                           asp-for="LastName"
+                                                           required
+                                                           class="form-control r-0 light s-12 datePicker"
+                                                           type="text">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-md-3 offset-md-1">
+                                            <i class="icon-user-plus text-mygreen s-128 mr-2"></i>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row mt-1">
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="email" class="col-form-label s-12">
+                                                <i class="icon-envelope-o mr-2 text-mygreen"></i>Email Address
+                                            </label>
+                                            <input id="email" placeholder="user@email.com"
+                                                   asp-for="EmailAddress"
+                                                   required
+                                                   class="form-control r-0 light s-12 " type="email">
+                                        </div>
+
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="phone" class="col-form-label s-12">
+                                                <i class="icon-phone  text-mygreen"></i> Phone Number
+                                            </label>
+                                            <input id="phone" placeholder="05112345678" class="form-control r-0 light s-12 "
+                                                   required
+                                                   asp-for="PhoneNumber"
+                                                   type="text">
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <hr>
+                                <div class="card-body float-right">
+                                    <button type="submit" class="btn btn-primary btn-lg col text-center">
+                                        <i class="icon-save mr-2"> </i>Save
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@*<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>*@

@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewData["Title"] = "TrasmittingMeter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@await Component.InvokeAsync("DashboardGetMeter", new { id=ViewBag.Id})
+

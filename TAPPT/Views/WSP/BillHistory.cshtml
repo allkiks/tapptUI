@@ -1,0 +1,120 @@
+﻿@model IEnumerable<WSPCustomerDownloadSerializer>
+@{
+    ViewData["Title"] = "BillHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Any())
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b shadow mb-3">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            @foreach (var item in Model)
+                            {
+                                <h1>Billing History For @item.Owner</h1>
+                                <h6>Account Number: @item.AccountNumber || Phone Number: @item.PhoneNumber </h6>
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane animated fadeInUpShort" id="v-pills-buyers" role="tabpanel" aria-labelledby="v-pills-buyers-tab">
+            </div>
+
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card  shadow">
+                        <div class="panel-heading text-center">
+                            <div class="panel-body panelsetup">
+                                <h4>LIST OF RETURNED BILLS</h4>
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="table-responsive datatablestyle">
+                            <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                <thead>
+                                    <tr class="no-b">
+                                        <th>
+                                            <div class="d-none d-lg-block">Date Billed</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Consumed (M<sup>3</sup>)</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Billed Amount</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Balance</div>
+                                        </th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        @foreach (var bill in item.Billings)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@bill.DateCreated</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@bill.Consumption</div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="d-none d-lg-block">@bill.Amount</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@bill.Balance</div>
+                                                </td>
+                                                
+                                            </tr>
+                                        }
+
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b shadow  ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>NO billing recordds found, please check again after your billing circle</h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+
+
+        </div>
+
+    </div>
+}

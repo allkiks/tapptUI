@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewData["Title"] = "TransmittingList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@await Component.InvokeAsync("ListTransmittingMeters", new { id=ViewBag.Id})
+
+

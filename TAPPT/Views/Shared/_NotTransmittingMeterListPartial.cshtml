@@ -1,0 +1,153 @@
+﻿@model IEnumerable<NotTransmittingMetersDownloadSerializer>
+@if (Model.Any())
+{
+    <div class="container-fluid animatedParent animateOnce">
+
+        <div class="tab-content my-3" id="v-pills-tabContent">
+           
+    
+            <div class="tab-pane animated fadeInUpShort show active"
+                 id="v-pills-all"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-all-tab">
+
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card-body white r-0 shadow">
+                            <div class="panel-heading text-center">
+                                <div class="panel-body panelsetup">
+                                    <h4>Meters Returned</h4>
+                                    <hr />
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                    <thead>
+                                        <tr class="no-b">
+
+
+                                            <th>
+                                                <div class="d-none d-lg-block">
+
+                                                    Meter Code
+                                                </div>
+                                            </th>
+
+                                            <th>
+                                                <div class="d-none d-lg-block">
+
+                                                    IMSI
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">
+                                                    Geo Cordinates
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">
+                                                    Last Trasmitted
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">
+                                                    Batery Voltage (volts)
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">
+                                                    Signal Strenth (DBi)
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">
+                                                    View Details
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.MeterCode
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.IMSI
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.GeoCordinates
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.LastTransmitted
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.BateryVoltage
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.SignalStrength
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="/WSP/MeterDetails/@item.Id">
+                                                        <button type="button" class="btn btn-primary btn-sm ml-2">View details</button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tab-pane animated fadeInUpShort"
+                 id="v-pills-buyers"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-buyers-tab"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="tab-pane animated fadeInUpShort show active"
+                 id="v-pills-all"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-all-tab">
+
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card r-0 shadow">
+                            <h1 style="color:black">Nothing here yet, Try again later ...</h1>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tab-pane animated fadeInUpShort"
+                 id="v-pills-buyers"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-buyers-tab"></div>
+        </div>
+    </div>
+}

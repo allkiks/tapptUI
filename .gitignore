@@ -1,0 +1,26 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/TAPPT/v16/Server/sqlite3
+/.vs/TAPPT/DesignTimeBuild
+/.vs/TAPPT/config
+/TAPPT/bin/Debug/netcoreapp3.1
+/TAPPT/obj
+/TAPPT/Properties
+/TAPPT/Properties/PublishProfiles
+/TAPPT/TAPPT.API.csproj.user
+/TAPPT/TAPPT.API.csproj
+/TAPPT/bin/Debug/netcoreapp3.1
+/TAPPT/obj/Debug/netcoreapp3.1
+/TAPPT.csproj.user
+/TAPPT.csproj
+/.vs/TAPPT/v16/.suo
+/TAPPT/bin/Release/netcoreapp3.1
+/TAPPT/bin/Release/netcoreapp3.1
+/MqttLib/obj/Release
+/.vs
+/TAPPT/bin/Debug/netcoreapp3.1
+/TAPPT/obj/Debug/netcoreapp3.1/Razor/Views/Admin
+/TAPPT/obj/Debug/netcoreapp3.1/Razor/Views/Home
+/TAPPT/obj/Debug/netcoreapp3.1/Razor/Views

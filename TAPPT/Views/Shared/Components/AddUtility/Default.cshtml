@@ -1,0 +1,186 @@
+﻿@model UtilityUploadSerializer
+
+
+<script type="text/javascript">
+    $('.file-upload').file_upload();
+    </script>
+<div class="container-fluid animatedParent animateOnce">
+    <div class="tab-content my-3" id="v-pills-tabContent">
+
+        <div class="card no-b ">
+
+            <div class="card-body">
+                <div class="row my-3 ">
+                    <div class="col-md-12">
+                        <h1>Add A Water Service Provider </h1>
+                        <h6>Fill in the form below to add a new water service provider </h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="animated fadeInUpShort">
+        <div class="row my-3">
+            <div class="col-md-12">
+                <form asp-action="AddUtility" asp-controller="Setting" method="post"
+                      class="" asp-antiforgery="true" enctype="multipart/form-data">
+                    <div class="card no-b shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Fill in the details below to add a new utiliy
+                            </h5>
+                            <div class="form-row">
+                                <div class="col-md-8">
+                                    <div class="form-group m-0">
+                                        <label for="name" class="col-form-label s-12"><i class="icon-building text-mygreentwo mr-2"></i>Company Name</label>
+                                        <input id="name"
+                                               asp-for="Name"
+                                               placeholder="Enter company's name"
+                                               class="form-control r-0 light s-12 "
+                                               required
+                                               type="text" />
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6 m-0">
+                                            <label for="email" class="col-form-label s-12"><i class="icon-envelope-o text-mygreentwo mr-2"></i>Email</label>
+                                            <input id="email"
+                                                   asp-for="Email"
+                                                   placeholder="ex: user@email.com"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                        </div>
+                                        <div class="form-group col-md-6 m-0">
+                                            <label for="kra-pin" class="col-form-label s-12">
+                                                <i class="icon-id-card-o text-mygreentwo mr-2"></i>KRA PIN
+                                            </label>
+                                            <input id="Kra-pin"
+                                                   asp-for="KRAPin"
+                                                   placeholder="Enter kra pin"
+                                                   class="form-control r-0 light s-12 datePicker"
+                                                   required
+                                                   type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-row mt-5">
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="address" class="col-form-label s-12">P.O BOX</label>
+                                            <input type="text"
+                                                   asp-for="PostalAddress"
+                                                   class="form-control r-0 light s-12"
+                                                   id="address"
+                                                   required
+                                                   placeholder="Enter postal address" />
+                                        </div>
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="mobile" class="col-form-label s-12">
+                                                <i class="icon-room mr-2 text-mygreentwo"></i>Physical
+                                                address
+                                            </label>
+                                            <input id="location"
+                                                   asp-for="PhysicalAddress"
+                                                   placeholder="eg: Nairobi"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                        </div>
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="name" class="col-form-label s-12">BOUQUET</label>
+                                            <select asp-for="BouquetId" name="Bouquets" id="Bouquets" onchange="getBouquets()" class="form-control" required>
+                                                Select Bouquet
+                                                <option id="Wait2" value="">please wait....</option>
+                                            </select>
+                                            <span asp-validation-for="BouquetId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="file-upload-wrapper col-md-3 offset-md-1">
+                                    <label for="mobile" class="col-form-label s-12">
+                                        <i class="icon-image text-mygreentwo mr-2"></i>Company Logo
+
+                                    </label>
+                                    <input id="LogoUrl"
+                                           asp-for="LogoFile"
+                                           placeholder="upload logo"
+                                           class="form-control r-0 light s-12 "
+                                           required
+                                           type="file" />
+
+                                </div>
+                            </div>
+
+                            <div class="form-row mt-1">
+                                <div class="form-group col-md-4 m-0">
+                                    <label for="county" class="col-form-label s-12">County</label>
+                                    <input id="county"
+                                           asp-for="County"
+                                           placeholder="county name"
+                                           class="form-control r-0 light s-12 "
+                                           required
+                                           type="text" />
+                                </div>
+
+                                <div class="form-group col-md-4 m-0">
+                                    <label for="phone" class="col-form-label s-12"><i class="icon-phone text-mygreentwo mr-2"></i>Phone</label>
+                                    <input id="phone"
+                                           asp-for="PhoneNumber"
+                                           placeholder="05112345678"
+                                           class="form-control r-0 light s-12 "
+                                           type="text" />
+                                </div>
+                                <div class="form-group col-md-4 m-0">
+                                    <label for="mobile" class="col-form-label s-12">
+                                        <i class="icon-contact_mail text-mygreentwo mr-2"></i>Website(optional)
+                                    </label>
+                                    <input id="location"
+                                           asp-for="Website"
+                                           placeholder="eg:company@domain.com"
+                                           class="form-control r-0 light s-12 "
+                                           type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="card-body">
+                            <button type="submit" class="btn btn-primary btn-lg col text-center">
+                                <i class="icon-save mr-2"> </i>Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/assets/js/jquery.min.js"></script>
+<script type="text/JavaScript">
+    $(document).ready(function () {
+        getBouquets();
+    });
+    function getBouquets() {
+        //get a reference to the select element
+        $bouquets = $('#Bouquets');
+        var baseUrl = "https://TAPPT2dev.azurewebsites.net/api/";
+        //request the JSON data and parse into the select element
+        $.ajax({
+            type: 'GET',
+            url: baseUrl.concat(`admin/GetBouquets`),
+            dataType: 'JSON',
+            success: function (data) {
+                //clear the current content of the select
+                //$zones.html('');
+                //iterate over the data and append a select option
+                $.each(data, function (index, val) {
+                    $('#Wait2').html("Select Bouquet");
+                    $bouquets.append(`<option id=${val.id}  value='${val.id}'+ >${val.name}</option>`);
+                })
+            },
+            error: function () {
+                //if there is an error append a 'none available' option
+                $bouquets.html('<option id="-1">none available</option>');
+            }
+        });
+    }
+</script>

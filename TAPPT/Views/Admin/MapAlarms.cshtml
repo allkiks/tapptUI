@@ -1,0 +1,145 @@
+﻿@{
+    ViewData["Title"] = "Map Alarms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid animatedParent animateOnce">
+    <div class="tab-content my-3" id="v-pills-tabContent">
+        <div class="tab-pane animated fadeInUpShort show active"
+             id="v-pills-all"
+             role="tabpanel"
+             aria-labelledby="v-pills-all-tab">
+            <div class="card no-b shadow ">
+
+                <div class="card-body mt-2 ">
+                    <div class="row my-3 ">
+                        <div class="col-md-8">
+                            <h3>Select Alarms You Want To Map To @ViewBag.Bouquet.Name Bouquet</h3>
+                            @*<h6>@ViewBag.Bouquet.Name Bouquet </h6>*@
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" name="assign-p" id="assign-p" class="btn  btn-primary btn-lg">Assign</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card-body white r-0 shadow">
+                        <div class="panel-heading">
+                            <div class="panel-body text-center panelsetup">
+                                <h4>Alarms</h4>
+                                <hr />
+                            </div>
+                        </div>
+
+                        <div class="table-responsive datatablestyle">
+                            <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                <thead>
+                                    <tr class="no-b">
+                                        <th>
+                                            <div class="d-none d-lg-block">Select Alarms</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Alarm</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewBag.Alarms)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="d-none d-lg-block">
+                                                    <input type="checkbox" data-select="@item.Id" id="@item.Id" name="@item.Id" class="approve" approve value="@item.Id">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-none d-lg-block">@item.Name</div>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane animated fadeInUpShort"
+             id="v-pills-buyers"
+             role="tabpanel"
+             aria-labelledby="v-pills-buyers-tab"></div>
+    </div>
+</div>
+
+<script src="~/assets/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+    function ajaxDatas() {
+        var bounquetId = @ViewBag.Bouquet.Id;
+        var alartArray = []
+        var checked = $('.approve:checked');
+        $('.approve:checked').each((index, row) => {
+            alartArray.push(row['id'])
+        });
+        return JSON.stringify({ BounquetId: bounquetId, SelectedContent: alartArray })
+    };
+    $('#assign-p').click(function (e) {
+        e.preventDefault();
+        $('#assign-p').html('<i class="fa fa-refresh fa-spinner"></i> Please wait.....');
+        console.log(ajaxDatas());
+        $.ajax({
+            headers : {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            url:"https://TAPPT2dev.azurewebsites.net/api/admin/PostSelected",
+            type: "POST",
+            data: ajaxDatas(),
+            statusCode: {
+                200: () => { ShowAlert('Alerts Assigned Succesfully', "success"); },
+                400: () => { ShowAlert('Bad Request', "Info"); },
+                404: () => { ShowAlert('Resource not found', "error"); },
+                403: () => { ShowAlert("You are not authorized to access the specified resource", "warning"); },
+                500: () => { ShowAlert('Something went wrong while assigning the Alarms', 'error'); }
+
+            },
+            success: function (data, status, jxhr) {
+                $('#assign-p').html('Assign');
+                ShowAlert("Alarms assigned successfully","success");
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

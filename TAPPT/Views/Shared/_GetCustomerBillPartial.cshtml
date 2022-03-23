@@ -1,0 +1,449 @@
+﻿@model IEnumerable<BillingDownloadSerializer>
+<!-- The invoice itself bill -->
+@if (Model.Any())
+{
+    <div class="container animatedParent animateOnce">
+        <div class="invoice white shadow mt-5">
+            <div class="p-5">
+                @foreach (var item in Model)
+                {
+                    <div class="row">
+                        <div class="col-12">
+                            <img class="w-80px mb-4" src="@item.LogoUrl" alt="" /> <h1 class="font-weight-bold">@item.WSP</h1>
+                            <div class="float-right">
+                                <h4>Invoice #@item.InvoiceNumber</h4><br>
+                                <table>
+                                    <tr>
+                                        <td class="font-weight-normal">Date:</td>
+                                        <td>@item.DateCreated</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="font-weight-normal">Payment Due: &nbsp; &nbsp; &nbsp;</td>
+                                        <td> Not Configured</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal">Account number:</td>
+                                        <td>@item.AccountNumber</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal"></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    <!-- info row -->
+                    <div class="row my-3 ">
+                        <div class="col-sm-4">
+                            From
+                            <address>
+                                <strong>
+                                    @item.WSP
+                                </strong><br>
+                                @item.WSPPhysicalAddress<br>
+                                @item.WSPPhoneNumber<br>
+                                Phone: @item.WSPPhoneNumber<br>
+                                Email: @item.WSPEmail
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4">
+                            To
+                            <address>
+                                <strong>@item.AccountNumber</strong><br>
+                                P.0 BOX @item.PostalAddress<br>
+                                Phone: @item.PostalAddress<br>
+                                Email: @item.Email
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4">
+
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    <!-- Table row -->
+                    <div class="row my-3">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Line items</th>
+                                        <th>Quantity</th>
+                                        <th>Rate</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Water consumption</td>
+                                        <td>@item.Consumption</td>
+                                        <td>---</td>
+                                        <td>@item.Amount</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Meter rent</td>
+                                        <td>1</td>
+                                        <td>200</td>
+                                        <td>200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sewer Charge</td>
+                                        <td>1</td>
+                                        <td>200</td>
+                                        <td>200</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row">
+                        <!-- accepted payments column -->
+                        <div class="col-6">
+
+
+                            <p class="text-muted well well-sm no-shadow mt-3">
+                                <h1 class="font-weight-bold"></h1>
+
+                            </p>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-6">
+                            <p class="lead">Amount Due</p>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+
+                                        <tr>
+                                            <th>Total:</th>
+                                            <td>KES @item.TotalAmount</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print printfunction">
+                        <div class="col-12">
+                            <a href="javascript:window.print()" target="_blank" class="btn btn-lg btn-success float-right mr-2">
+                                <i class="icon icon-print"></i> Print
+                            </a>
+                            <!-- <button type="button" class="btn btn-success btn-lg  float-right"><i
+                                    class="icon icon-credit-card"></i> Submit Payment
+                            </button>
+                            <button type="button" class="btn btn-primary btn-lg float-right mr-2">
+                                <i class="icon icon-cloud-download"></i> Generate PDF
+                            </button> -->
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b r-0 shadow mb-3">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            @foreach (var item in ViewBag.Model)
+                            {
+                                <h1>Customer @item.Owner Has No Pending Bills</h1>
+                                <h6>The table below Shows the Billing history for account number @item.AccountNumber </h6>
+                                @*<h6>Account Number: @item.AccountNumber || Phone Number: @item.PhoneNumber </h6>*@
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane animated fadeInUpShort" id="v-pills-buyers" role="tabpanel" aria-labelledby="v-pills-buyers-tab">
+            </div>
+
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card-body white  shadow">
+                        <div class="panel-heading text-center">
+                            <div class="panel-body panelsetup">
+                                @*<h4>List Of Returned Bills</h4>
+                                    <hr />*@
+                            </div>
+                        </div>
+                        <div class="table-responsive datatablestyle">
+                            <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                <thead>
+                                    <tr class="no-b">
+                                        <th>
+                                            <div class="d-none d-lg-block">Date Billed</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Accumulated Consumption(m<sup>3</sup>)</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Billed Amount</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Balance</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Receipt</div>
+                                        </th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewBag.Model)
+                                    {
+                                        @foreach (var bill in item.Billings)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@bill.DateCreated</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block text-right">@bill.Consumption</div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="d-none d-lg-block text-right">@bill.Amount</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block text-right">@bill.Balance</div>
+                                                </td>
+                                                <td>
+                                                    <a href="/"
+                                                       class="btn btn-primary btn-sm ml-5" data-toggle="modal" data-target="#exampleModal">View Receipt</a>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                            <div class="invoice white shadow mt-5">
+                                                                                <div class="p-5">
+                                                                                    @foreach (var items in Model)
+                                                                                    {
+                                                                                        <div class="row">
+                                                                                            <div class="col-12">
+                                                                                                <img class="w-80px mb-4" src="@items.LogoUrl" alt="" /> <h1 class="font-weight-bold">@item.WSP</h1>
+                                                                                                <div class="float-right">
+                                                                                                    <h4>Invoice #@items.InvoiceNumber</h4><br>
+                                                                                                    <table>
+                                                                                                        <tr>
+                                                                                                            <td class="font-weight-normal">Date:</td>
+                                                                                                            <td>@items.DateCreated</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td class="font-weight-normal">Payment Due: &nbsp; &nbsp; &nbsp;</td>
+                                                                                                            <td> Not Configured</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td class="font-weight-normal">Account number:</td>
+                                                                                                            <td>@items.AccountNumber</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td class="font-weight-normal"></td>
+                                                                                                            <td></td>
+                                                                                                        </tr>
+                                                                                                    </table>
+
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                            <!-- /.col -->
+                                                                                        </div>
+
+                                                                                        <!-- info row -->
+                                                                                        <div class="row my-3 ">
+                                                                                            <div class="col-sm-4">
+                                                                                                From
+                                                                                                <address>
+                                                                                                    <strong>
+                                                                                                        @items.WSP
+                                                                                                    </strong><br>
+                                                                                                    @items.WSPPhysicalAddress<br>
+                                                                                                    @items.WSPPhoneNumber<br>
+                                                                                                    Phone: @items.WSPPhoneNumber<br>
+                                                                                                    Email: @items.WSPEmail
+                                                                                                </address>
+                                                                                            </div>
+                                                                                            <!-- /.col -->
+                                                                                            <div class="col-sm-4">
+                                                                                                To
+                                                                                                <address>
+                                                                                                    <strong>@items.AccountNumber</strong><br>
+                                                                                                    P.0 BOX @items.PostalAddress<br>
+                                                                                                    Phone: @items.PostalAddress<br>
+                                                                                                    Email: @items.Email
+                                                                                                </address>
+                                                                                            </div>
+                                                                                            <!-- /.col -->
+                                                                                            <div class="col-sm-4">
+
+                                                                                            </div>
+                                                                                            <!-- /.col -->
+                                                                                        </div>
+                                                                                        <!-- /.row -->
+                                                                                        <!-- Table row -->
+                                                                                        <div class="row my-3">
+                                                                                            <div class="col-12 table-responsive">
+                                                                                                <table class="table table-striped">
+                                                                                                    <thead>
+                                                                                                        <tr>
+                                                                                                            <th>No</th>
+                                                                                                            <th>Line items</th>
+                                                                                                            <th>Quantity</th>
+                                                                                                            <th>Rate</th>
+                                                                                                            <th>Subtotal</th>
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <td>1</td>
+                                                                                                            <td>Water consumption</td>
+                                                                                                            <td>@items.Consumption</td>
+                                                                                                            <td>---</td>
+                                                                                                            <td>@items.Amount</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>2</td>
+                                                                                                            <td>Meter rent</td>
+                                                                                                            <td>1</td>
+                                                                                                            <td>200</td>
+                                                                                                            <td>200</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td>3</td>
+                                                                                                            <td>Sewer Charge</td>
+                                                                                                            <td>1</td>
+                                                                                                            <td>200</td>
+                                                                                                            <td>200</td>
+                                                                                                        </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </div>
+                                                                                            <!-- /.col -->
+                                                                                        </div>
+                                                                                        <!-- /.row -->
+
+                                                                                        <div class="row">
+                                                                                            <!-- accepted payments column -->
+                                                                                            <div class="col-6">
+
+
+                                                                                                <p class="text-muted well well-sm no-shadow mt-3">
+                                                                                                    <h1 class="font-weight-bold"></h1>
+
+                                                                                                </p>
+                                                                                            </div>
+                                                                                            <!-- /.col -->
+                                                                                            <div class="col-6">
+                                                                                                <p class="lead">Amount Due</p>
+
+                                                                                                <div class="table-responsive">
+                                                                                                    <table class="table">
+                                                                                                        <tbody>
+
+                                                                                                            <tr>
+                                                                                                                <th>Total:</th>
+                                                                                                                <td>KES @items.TotalAmount</td>
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!-- /.col -->
+                                                                                        </div>
+                                                                                        <!-- /.row -->
+                                                                                        <!-- this row will not appear when printing -->
+                                                                                        <div class="row no-print printfunction">
+                                                                                            <div class="col-12">
+                                                                                                <a href="javascript:window.print()" target="_blank" class="btn btn-lg btn-success float-right mr-2">
+                                                                                                    <i class="icon icon-print"></i> Print
+                                                                                                </a>
+                                                                                                <!-- <button type="button" class="btn btn-success btn-lg  float-right"><i
+                                                                                                        class="icon icon-credit-card"></i> Submit Payment
+                                                                                                </button>
+                                                                                                <button type="button" class="btn btn-primary btn-lg float-right mr-2">
+                                                                                                    <i class="icon icon-cloud-download"></i> Generate PDF
+                                                                                                </button> -->
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    }
+
+
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary">Print</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+
+                                        }
+
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+
+<!-- end of invoice here -->

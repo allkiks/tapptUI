@@ -1,0 +1,81 @@
+﻿@model AddtariffRateUploadSerializer
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="card no-b shadow mt-4 ">
+
+            <div class="card-body">
+                <div class="row my-3 ">
+                    <div class="col-md-12">
+                        <h1>Add Tariff A Tariff Rate</h1>
+                        <h6>Use this page to add tariff rates </h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="animated fadeInUpShort">
+            <div class="row my-3 mt-5">
+                <div class="col-md-12 shadow">
+                    <form asp-action="AddTariffRate" asp-controller="WSP" asp-antiforgery="true" method="post">
+                        <div class="card no-b">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Fill In The Details Below To Add A New Rate For The Tariff
+                                </h5>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">Minimum Flow</label>
+                                            <input id="MinimumFlow"
+                                                   asp-for="MinimumFlow"
+                                                   placeholder="Enter Minimum Flow Rate"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">Maximum flow</label>
+                                            <input id="MaximumFlow"
+                                                   asp-for="MaximumFlow"
+                                                   placeholder="Enter Maximum flow"
+                                                   class="form-control r-0 light s-12 "
+                                                    required
+                                                   type="text" />
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">Charge rate</label>
+                                            <input id="MaximumFlow"
+                                                   asp-for="Rate"
+                                                   placeholder="Enter The Chargable rate"
+                                                   class="form-control r-0 light s-12 "
+                                                    required
+                                                   type="text" />
+                                        </div>
+                                        <div class="form-group m-0 cS-hidden">
+                                            <label for="name" class="col-form-label s-12">Tariff rate</label>
+                                            <input id="tariffRate"
+                                                   asp-for="TariffId"
+                                                   placeholder=""
+                                                   value="@ViewBag.TariffId"
+                                                   class="form-control r-0 light s-12 "
+                                                   type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg  col text-center">
+                                    <i class="icon-save mr-2"> </i>Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

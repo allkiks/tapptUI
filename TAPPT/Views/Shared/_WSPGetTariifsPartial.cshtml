@@ -1,0 +1,118 @@
+﻿@model IEnumerable<TariffsDownloadSerializer>
+
+
+
+@if (Model.Any())
+
+{
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="card no-b shadow mt-4 ">
+
+            <div class="card-body">
+                <div class="row my-3 ">
+                    <div class="col-md-12">
+                        <h1>Tariff Management </h1>
+                        <h6>Use this page to create, view update and delete tariffs </h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-12">
+                <div class="card-body white r-0 shadow">
+                    <div class="panel-heading">
+                        <div class="panel-body panelsetup">
+                           
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="tryy" class="table table-striped table-bordered " style="width:100%">
+                            <thead>
+                                <tr class="no-b">
+                                    <th>Tariff name</th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Status</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Add New</div>
+                                    </th>
+                                    @*<th>
+                                        <div class="d-none d-lg-block">View Rates</div>
+                                    </th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex">
+
+                                                <div>
+                                                    <div>
+                                                        <strong>@item.Name</strong>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="d-none d-lg-block">
+                                                <span class="icon icon-circle s-12  mr-2 text-mygreentwo"></span>
+                                                active
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <a href="/WSP/AddTariffRate/@item.Id"
+                                                class="btn btn-primary btn-sm ml-5 ">Add a new rate
+                                            </a>
+                                        </td>
+
+                                        @*<td>
+                                                <a href="/WSP/AddTariffRate/@item.Id">
+                                                    <i class="icon-plus s-24 ml-2"></i>
+                                                </a>
+                                            </td>*@
+                                       
+                                        @*<td>
+                                            <a href="/WSP/AddTariffRate/@item.Id">
+                                                <i class="icon-eye s-24 ml-2"></i>
+                                            </a>
+                                        </td>*@
+                                    </tr>
+                                }
+                            </tbody>
+                            @*<tfoot>
+                                    <tr class="no-b">
+                                        <th>Tariff name</th>
+                                        <th>
+                                            <div class="d-none d-lg-block">STATUS</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">Add new</div>
+                                        </th>
+                                        <th>
+                                            <div class="d-none d-lg-block">View rates</div>
+                                        </th>
+                                    </tr>
+                                </tfoot>*@
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+
+}
+
+
+
+

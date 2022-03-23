@@ -1,0 +1,79 @@
+﻿@model GETWSPDashBoardDownloadSerializer
+@{
+    var _user = User.FindFirst("Email")?.Value;
+}
+
+<div class="container-fluid relative animatedParent animateOnce my-3">
+    <div class="row row-eq-height my-3 mt-3">
+
+        @if (_user.Contains("@eldowas"))
+        {
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src=" https://app.powerbi.com/view?r=eyJrIjoiOGM2MTBkZmYtOTY4My00ZmE5LWE4YjctMTJjMjg5ODY1MzhhIiwidCI6ImVmYmRiMzQ2LTBkYzItNDNmNy1iMWY0LWM5MjkwNjBiZjcyYyJ9" allowfullscreen></iframe>
+            </div>
+        }
+
+        @if (_user.Contains("@nawasco"))
+        {
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src=" https://app.powerbi.com/view?r=eyJrIjoiOGM2MTBkZmYtOTY4My00ZmE5LWE4YjctMTJjMjg5ODY1MzhhIiwidCI6ImVmYmRiMzQ2LTBkYzItNDNmNy1iMWY0LWM5MjkwNjBiZjcyYyJ9" allowfullscreen></iframe>
+            </div>
+        }
+
+        @if (_user.Contains("@kikuyuwater"))
+        {
+
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://app.powerbi.com/view?r=eyJrIjoiZThlY2ZjNjAtODg2Ni00MmYyLWJiMzktYjUyMzY1MjA0ZDliIiwidCI6ImVmYmRiMzQ2LTBkYzItNDNmNy1iMWY0LWM5MjkwNjBiZjcyYyJ9" allowfullscreen></iframe>
+            </div>
+        }
+
+        @if (_user.Contains("@kikuyusouth"))
+        {
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://app.powerbi.com/view?r=eyJrIjoiZmIxZGMyMzItMTZmYS00OTliLWIwZjgtN2EwZGVkYTkwMzNjIiwidCI6ImVmYmRiMzQ2LTBkYzItNDNmNy1iMWY0LWM5MjkwNjBiZjcyYyJ9" allowfullscreen></iframe>
+            </div>
+        }
+
+        @if (_user.Contains("@rundawater"))
+        {
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://app.powerbi.com/view?r=eyJrIjoiY2M4NTMzY2ItOTBiMC00Mzg3LWFhZDctZjc3NGUzMjMwZTZhIiwidCI6ImVmYmRiMzQ2LTBkYzItNDNmNy1iMWY0LWM5MjkwNjBiZjcyYyJ9" allowfullscreen></iframe>
+            </div>
+        }
+
+        @if (_user.Contains("@gosoftke"))
+        {
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://app.powerbi.com/view?r=eyJrIjoiOTkwNDdlMjctOTgwYy00NWFiLThhM2MtODNmZDZiMDhhNTBiIiwidCI6ImVmYmRiMzQ2LTBkYzItNDNmNy1iMWY0LWM5MjkwNjBiZjcyYyJ9" allowfullscreen></iframe>
+            </div>
+        }
+
+        @if (_user.Contains("@embuwater"))
+        {
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item pt-2 pl-2 pr-2" src=" https://app.powerbi.com/view?r=eyJrIjoiOGM2MTBkZmYtOTY4My00ZmE5LWE4YjctMTJjMjg5ODY1MzhhIiwidCI6ImVmYmRiMzQ2LTBkYzItNDNmNy1iMWY0LWM5MjkwNjBiZjcyYyJ9" allowfullscreen></iframe>
+            </div>
+        }
+    </div>
+</div>
+<!--Logout Modal -->
+<div class="modal shadow fade modal-notification" id="logoutModal1" tabindex="-1" role="dialog" aria-labelledby="standardModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" id="standardModalLabel">
+        <div class="modal-content">
+
+            <div class="modal-body text-center">
+                <div class="icon-content mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                </div>
+                <h4 class="modal-text mb-3">Are you sure you want to logout?</h4>
+            </div>
+            <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm">
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-danger shadow-lg" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Cancel</button>
+                    <button type="submit" class="btn btn-primary">Yes, Log Me Out</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

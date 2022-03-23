@@ -1,0 +1,109 @@
+﻿@model IEnumerable<AuditLogUploadViewModel>
+@{
+    ViewData["Title"] = "AuditLogs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Any())
+{
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="tab-pane animated fadeInUpShort show active"
+                 id="v-pills-all"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-all-tab">
+                <div class="card no-b r-0 shadow ">
+
+                    <div class="card-body mt-2 ">
+                        <div class="row my-3 ">
+                            <div class="col-md-12">
+                                <h1>Audit Logs</h1>
+                                <h6>This page displays an audit Log List </h6>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card-body white r-0 shadow">
+                            <div class="panel-heading">
+                                <div class="panel-body text-center panelsetup">
+                                    <h4>Audit Logs</h4>
+                                    <hr />
+                                </div>
+                            </div>
+
+                            <div class="table-responsive datatablestyle">
+                                <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                    <thead>
+                                        <tr class="no-b">
+                                            <th>
+                                                <div class="d-none d-lg-block">Created By</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">Created On</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">Description</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.CreatedBy</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.CreatedOn</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.Description</div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane animated fadeInUpShort"
+                 id="v-pills-buyers"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-buyers-tab"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Audit Logs</h1>
+                            <h6>Nothing here yet, chech again later</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane animated fadeInUpShort"
+             id="v-pills-buyers"
+             role="tabpanel"
+             aria-labelledby="v-pills-buyers-tab"></div>
+    </div>
+
+}
+

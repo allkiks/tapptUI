@@ -1,0 +1,55 @@
+﻿@model TariffUploadSerializer
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="card no-b shadow mt-3">
+
+            <div class="card-body">
+                <div class="row my-3 ">
+                    <div class="col-md-12">
+                        <h1>Add A Tariff</h1>
+                        <h6>Fill in the form below to add a new tariff</h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="animated fadeInUpShort">
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <form asp-action="AddTariff" asp-controller="Setting" method="post"
+                          class="" asp-antiforgery="true">
+                        <div class="card no-b">
+                            <div class="card-body">
+                                <h5 class="card-title">Fill In The Details Below To Add A New Tariff</h5>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group m-0">
+                                            <label asp-for="Name" class="col-form-label s-12">Tariff Name</label>
+                                            <input asp-for="Name" id="ItemName"
+                                                   placeholder="tariff name"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                    @*<div class="col-md-3 ">
+                                        <span>
+                                            <i class="icon-document-add2 s-64 ml-2 text-blue"></i>
+                                        </span>
+                                    </div>*@
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn mygreentwo btn-primary pull-right col text-center">
+                                    <i class="icon-save mr-2"></i>Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

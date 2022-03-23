@@ -1,0 +1,125 @@
+﻿@model IEnumerable<BillingDownloadSerializer>
+@{
+    ViewData["Title"] = "UnpaidBills";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid animatedParent animateOnce">
+    <div class="tab-content my-3" id="v-pills-tabContent">
+        <div class="card no-b r-0 shadow ">
+
+            <div class="card-body">
+                <div class="row my-3 mt-2">
+                    <div class="col-md-12">
+                        <h2>Unpaid Bills</h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-md-12">
+                <div class="card-body white r-0 shadow mb-5">
+                    <div class="panel-body panelsetup text-center">
+                        <h4>List Of Returned Bills</h4>
+                        <hr />
+                    </div>
+                    <div class="table-responsive datatablestyle">
+                        <table id="tryy" class="table table-striped table-bordered display nowrap" style="width:100%">
+                            <thead>
+                                <tr class="no-b">
+                                    <th>
+                                        <div class="d-none d-lg-block">Date Created</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Month</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Year</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Meter Code</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Account Number</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Account Name</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Bill Number</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Consumption (m<sup>3</sup>)</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Amount (Kshs)</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+
+                                    <td>
+                                        <div class="d-none d-lg-block">
+                                            @item.DateCreated
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="d-none d-lg-block">
+                                            @item.Month
+                                            </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="d-none d-lg-block">
+                                            @item.Year
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block">
+                                            @item.MeterCode
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block">
+                                            @item.AccountNumber
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block">
+                                            @item.CustomerName
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block">
+                                            @item.InvoiceNumber
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block text-right">
+                                            @item.Consumption
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block text-right">
+                                            @item.Amount
+                                        </div>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

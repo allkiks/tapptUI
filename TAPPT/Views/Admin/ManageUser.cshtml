@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewData["Title"] = "ManageUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <header class="white pt-3 relative shadow">
+        <div class="container-fluid">
+            <div class="row p-t-b-10">
+                <div class="col">
+                    <div class="pb-3">
+                        <div class="image mr-3  float-left">
+                            @*<img class="user_avatar no-b no-p" src="~/assets/img/dummy/avator.png" alt="User Image">*@
+                            <i class="icon-user mr-2 text-mygreentwo s-64"></i>
+                        </div>
+                        <div>
+                            <h6 class="p-t-10">@ViewBag.User.DisplayName</h6>
+                            @ViewBag.User.Email
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <ul class="nav nav-material responsive-tab" id="v-pills-tab" role="tablist">
+                    <li>
+                        <a class="nav-link active show" id="v-pills-tab1-tab" data-toggle="pill" href="#tab1" role="tab" aria-controls="v-pills-tab1" aria-selected="true">
+                            <i class="icon icon-cog"></i>Edit Details
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-payments-tab" data-toggle="pill" href="#tab2" role="tab" aria-controls="v-pills-payments" aria-selected="false"><i class="icon icon-cog"></i>Reset Password</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-timeline-tab" data-toggle="pill" href="#tab3" role="tab" aria-controls="v-pills-timeline" aria-selected="false"><i class="icon icon-cog"></i>Change Role</a>
+                    </li>
+                   
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <div class="container-fluid animatedParent animateOnce my-3">
+        <div class="animated fadeInUpShort go">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade active show" id="tab1" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                    <form asp-action="EditUser" asp-controller="Admin" method="post" asp-antiforgery="true">
+                        <div class="card no-b shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Edit User Details
+
+                                </h5>
+                                <div class="form-row mt-1">
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="FirstName" class="col-form-label s-12"><i class="icon-user mr-2  text-mygreentwo"></i>First Name</label>
+                                        <input id="FirstName"
+                                               name="FirstName"
+                                               value="@ViewBag.User.FirstName"
+                                               class="form-control r-0 light s-12"
+                                               required
+                                               type="text" />
+
+                                    </div>
+
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="MiddleName" class="col-form-label s-12"><i class="icon-user mr-2  text-mygreentwo"></i>Middle Name</label>
+                                        <input id="MiddleName"
+                                               name="MiddleName"
+                                               value="@ViewBag.User.MiddleName"
+                                               class="form-control r-0 light s-12 "
+                                               type="text" />
+                                    </div>
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="LastName" class="col-form-label s-12">
+                                            <i class="icon-user mr-2  text-mygreentwo"></i>Last Name
+                                        </label>
+                                        <input id="LastName"
+                                               name="LastName"
+                                               value="@ViewBag.User.LastName"
+                                               class="form-control r-0 light s-12 "
+                                               required
+                                               type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="form-row mt-5">
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="PhoneNumber" class="col-form-label s-12"><i class="icon-phone mr-2  text-mygreentwo"></i>Phone Number</label>
+                                        <input id="PhoneNumber"
+                                               name="PhoneNumber"
+                                               value="@ViewBag.User.PhoneNumber"
+                                               class="form-control r-0 light s-12 "
+                                               required
+                                               type="text" />
+                                    </div>
+
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="EmailAddress" class="col-form-label s-12"><i class="icon-email mr-2  text-mygreentwo"></i>Email Address</label>
+                                        <input id="EmailAddress"
+                                               name="EmailAddress"
+                                               value="@ViewBag.User.Email"
+                                               class="form-control r-0 light s-12 "
+                                               required
+                                               type="text" />
+
+                                    </div>
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="PostaAddress" class="col-form-label s-12">
+                                            <i class="icon-contact_mail mr-2  text-mygreentwo"></i>User Role
+                                        </label>
+                                        <input id="RoleName"
+                                               name="RoleName"
+                                               value="@ViewBag.User.RoleName"
+                                               readonly
+                                               class="form-control r-0 light s-12 "
+                                               type="text" />
+
+                                    </div>
+                                    <div class="form-group col-md-4 m-0" style="display:none;">
+                                        <label for="Uid" class="col-form-label s-12">
+                                            <i class="icon-user mr-2  text-mygreentwo"></i>Last Name
+                                        </label>
+                                        <input id="UId"
+                                               name="UId"
+                                               value="@ViewBag.User.Id"
+                                               class="form-control r-0 light s-12 "
+                                               required
+                                               type="text" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg col text-center">
+                                    <i class="icon-save mr-2"> </i>Update User Details
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                    <form asp-action="ResetPassword" asp-controller="Admin" method="post" asp-antiforgery="true">
+                        <div class="card no-b shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Reset User Password
+
+                                </h5>
+
+                                <div class="form-row mt-5" style="display:none;">
+
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="UId" class="col-form-label s-12"><i class="icon-email mr-2  text-mygreentwo"></i>Email Address</label>
+                                        <input id="UId"
+                                               name="UId"
+                                               value="@ViewBag.User.Id"
+                                               class="form-control r-0 light s-12 "
+                                               required
+                                               type="text" />
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg float-lg-right col text-center">
+                                    <i class="icon-save mr-2"> </i>Send New Password
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                    <form asp-action="ChangeRole" asp-controller="Admin" method="post" asp-antiforgery="true">
+                        <div class="card no-b shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                   Change User Role
+
+                                </h5>
+                                <div class="form-row mt-1">
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="FirstName" class="col-form-label s-12"><i class="icon-user mr-2  text-mygreentwo"></i>Current Role</label>
+                                        <input id="CurrentRole"
+                                               name="CurrentRole"
+                                               value="@ViewBag.User.RoleName"
+                                               class="form-control r-0 light s-12"
+                                               required
+                                               type="text" />
+
+                                    </div>
+
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="MiddleName" class="col-form-label s-12"><i class="icon-user mr-2  text-mygreentwo"></i>New Role</label>
+                                        <select name="RoleName" id="RoleName" class="form-control has-right-icon" required>
+                                            <option value="">Select Role</option>
+                                            @foreach (var item in ViewBag.Roles)
+                                            {
+                                                <option value="@item.Id">@item.Name</option>
+                                            }
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4 m-0" style="display:none;">
+                                        <label for="Uid" class="col-form-label s-12">
+                                            <i class="icon-user mr-2  text-mygreentwo"></i>Last Name
+                                        </label>
+                                        <input id="UId"
+                                               name="UId"
+                                               value="@ViewBag.User.Id"
+                                               class="form-control r-0 light s-12 "
+                                               required
+                                               type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg float-lg-right col text-center">
+                                    <i class="icon-save mr-2"> </i>Change User Role
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+

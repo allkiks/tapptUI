@@ -1,0 +1,120 @@
+﻿@model UtilityUploadSerializer
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+
+            <div class="card no-b ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Edit Water Service Provider</h1>
+                            <h6>Fill in the form below to edit the water service provider </h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="animated fadeInUpShort">
+            <div class="row my-3">
+                <div class="col-md-12 ">
+                    <form asp-action="EditUtility" asp-controller="Setting" method="post"
+                          class="" asp-antiforgery="true">
+                        <div class="card no-b mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Edit WSP Utility</h5>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group m-0">
+                                            <label asp-for="Name" class="col-form-label s-12">Name</label>
+                                            <input asp-for="Name" id="ItemName"
+                                                   placeholder="name of utility"
+                                                   class="form-control r-0 light s-12 "
+                                                   value="@Model.Name"
+                                                   type="text" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label asp-for="PhysicalAddress" class="col-form-label s-12">Physical Address</label>
+                                            <input asp-for="PhysicalAddress" id="Rate"
+                                                   placeholder="building address"
+                                                   class="form-control r-0 light s-12 "
+                                                   value="@Model.PhysicalAddress"
+                                                   type="text" />
+                                            <span asp-validation-for="PhysicalAddress" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label asp-for="PostalAddress" class="col-form-label s-12">Postal Address</label>
+                                            <input asp-for="PostalAddress" id="ItemName"
+                                                   placeholder="po box 0000"
+                                                   class="form-control r-0 light s-12 "
+                                                   value="@Model.PostalAddress"
+                                                   type="text" />
+                                            <span asp-validation-for="PostalAddress" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label asp-for="PhoneNumber" class="col-form-label s-12">Phone Number</label>
+                                            <input asp-for="PhoneNumber" id="ItemName"
+                                                   placeholder="0700000000"
+                                                   class="form-control r-0 light s-12 "
+                                                   value="@Model.PhoneNumber"
+                                                   type="text" />
+                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label asp-for="Email" class="col-form-label s-12">Email</label>
+                                            <input asp-for="Email" id="ItemName"
+                                                   placeholder="example@email.com"
+                                                   class="form-control r-0 light s-12 "
+                                                   value="@Model.Email"
+                                                   type="text" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label asp-for="County" class="col-form-label s-12">County</label>
+                                            <input asp-for="County" id="ItemName"
+                                                   placeholder="county name"
+                                                   class="form-control r-0 light s-12 "
+                                                   value="@Model.County"
+                                                   type="text" />
+                                            <span asp-validation-for="County" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label asp-for="KRAPin" class="col-form-label s-12">KRA Pin</label>
+                                            <input asp-for="KRAPin" id="ItemName"
+                                                   placeholder="name of utility"
+                                                   class="form-control r-0 light s-12 "
+                                                   value="@Model.KRAPin"
+                                                   type="text" />
+                                            <span asp-validation-for="KRAPin" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group m-0 cS-hidden">
+                                            <label asp-for="Id" class="col-form-label s-12">Id</label>
+                                            <input asp-for="Id" id="ItemName"
+                                                   placeholder="county name"
+                                                   class="form-control r-0 light s-12 "
+                                                   value="@Model.Id"
+                                                   type="text" />
+                                            <span asp-validation-for="Id" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    @*<div class="col-md-3 offset-md-1">
+                                        <span>
+                                            <img src="~/images/billingitem.jpg" style="height:70px;width:70px;">
+                                        </span>
+                                    </div>*@
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary col text-center">
+                                    <i class="icon-save mr-2"></i>Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

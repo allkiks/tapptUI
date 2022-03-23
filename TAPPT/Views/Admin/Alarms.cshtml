@@ -1,0 +1,111 @@
+﻿@model IEnumerable<AlarmViewModel>
+@{
+    ViewData["Title"] = "Alarms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Any())
+{
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="tab-pane animated fadeInUpShort show active"
+                 id="v-pills-all"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-all-tab">
+                <div class="card no-b shadow ">
+
+                    <div class="card-body mt-2 ">
+                        <div class="row my-3 ">
+                            <div class="col-md-12">
+                                <h1>Alarms</h1>
+                                <h6>List Of Alarms </h6>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card r-0 shadow">
+                            <div class="panel-heading">
+                                <div class="panel-body text-center panelsetup">
+                                    <h4>Alarms</h4>
+                                    <hr />
+                                </div>
+                            </div>
+
+                            <div class="table-responsive datatablestyle">
+                                <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                    <thead>
+                                        <tr class="no-b">
+                                            <th>
+                                                <div class="d-none d-lg-block">Serial Number</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">Alarm</div>
+                                            </th>
+
+                                            <th>
+                                                <div class="d-none d-lg-block">Manage Alarm</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.Id</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">@item.Name</div>
+                                                </td>
+                                                <td>
+                                                    <a href="/Admin/ManageAlarm/@item.Id"
+                                                       class="ml-5 btn  btn-primary btn-sm">Manage Alarm</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane animated fadeInUpShort"
+                 id="v-pills-buyers"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-buyers-tab"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Alarm List</h1>
+                            <h6>No Alarms yet ,<a href="/Admin/AddAlarm"> click here to add an alarm </a></h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane animated fadeInUpShort"
+             id="v-pills-buyers"
+             role="tabpanel"
+             aria-labelledby="v-pills-buyers-tab"></div>
+    </div>
+
+}
+

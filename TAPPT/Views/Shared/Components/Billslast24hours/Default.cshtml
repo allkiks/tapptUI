@@ -1,0 +1,95 @@
+﻿@model Billslast24hoursViewModel
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-pane animated fadeInUpShort show active"
+             id="v-pills-all"
+             role="tabpanel"
+             aria-labelledby="v-pills-all-tab">
+
+            <div class="card no-b shadow mt-2 mb-5">
+
+                <div class="card-body mt-1 ">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Total bills paid last 24 hours </h1>
+                            <h6>This page displays all the bills paid in the last 24 hours </h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card r-0  shadow">
+                <div class="table-responsive ">
+                    <form>
+
+                        <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+
+                            <thead>
+                                <tr class="no-b">
+                                    <th>
+                                        <div class="d-none d-lg-block">Meter Number</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Date</div>
+                                    </th>
+
+                                    <th>
+                                        <div class="d-none d-lg-block">Account number</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block">Payment method</div>
+                                    </th>
+                                    <th>
+                                        <div class="d-none d-lg-block"> Amount</div>
+                                    </th>
+
+
+                                    @*<th><div class="d-none d-lg-block">Add admin</div></th>
+                                <th><div class="d-none d-lg-block">View utility</div></th>
+                                <th><div class="d-none d-lg-block">Delete utility</div></th>*@
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+
+
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+
+                                            <div>
+                                                <div>
+                                                    <strong></strong>
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="d-none d-lg-block"></div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block"></div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block"></div>
+                                    </td>
+                                    <td>
+                                        <div class="d-none d-lg-block"></div>
+                                    </td>
+                                </tr>
+
+
+
+
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+
+            </div>
+            </div>
+        </div>

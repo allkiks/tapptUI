@@ -1,0 +1,58 @@
+﻿@model AlarmViewModel
+@{
+    ViewData["Title"] = "AddAlarm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="container-fluid animatedParent animateOnce">
+            <div class="card no-b shadow mt-4 mb-2">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Add New Alarm</h1>
+                            <h6>Add New Alarm</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid animatedParent animateOnce">
+                <div class="animated fadeInUpShort">
+                    <div class="row my-3 mt-5 ">
+                        <div class="col-md-8 offset-md-2 white shadow">
+                            <form asp-action="AddAlarm" asp-controller="Admin" asp-antiforgery="true" method="post">
+                                <div class="card no-b">
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="col-md-12">
+                                                <div class="form-group m-0">
+                                                    <label for="Name" class="col-form-label s-12">Alarm Name</label>
+                                                    <input asp-for="Name"
+                                                           class="form-control r-0 light s-12 "
+                                                           required
+                                                           type="text" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="card-body">
+                                        <button type="submit" class="btn btn-primary btn-lg col text-center">
+                                            <i class="icon-save mr-2"> </i>Save Alarm
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

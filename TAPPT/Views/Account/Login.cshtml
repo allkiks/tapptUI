@@ -1,0 +1,193 @@
+﻿@{
+    ViewData["Title"] = "TAPPT | Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+@model LoginViewModel
+
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sign in to your account</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <link rel="icon" href="~/images/faviconsafaricom.png" type="favicon" />
+    <link href="~/assets/login.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:600&display=swap" rel="stylesheet">
+
+</head>
+
+
+<style type="text/css">
+
+    .modal {
+        position: fixed;
+        z-index: 998;
+        height: 100% !important;
+        width: 100% !important;
+        top: 0;
+        display: block;
+        background-color: Black !important;
+        filter: grayscale(100%);
+        opacity: 0.6;
+    }
+
+    .loading {
+        font-family: Arial;
+        font-size: 10pt;
+        border: 5px solid #67CFF5;
+        width: 200px;
+        height: 100px;
+        display: none;
+        position: fixed;
+        background-color: White;
+        z-index: 999;
+    }
+</style>
+<body class="cb" style="display: block;">
+    <div id="mainstuff">
+        <div>
+
+            <div>
+                <div class="background"
+                     role="presentation">
+
+                    <div data-bind="backgroundImage: smallImageUrl()"
+                         style='background-image: url("https://uiassets.blob.core.windows.net/assets/water with hands.jpg");'></div>
+
+                    <div class="backgroundImage"
+                         data-bind="backgroundImage: backgroundImageUrl()"
+                         style='background-image: url("https://uiassets.blob.core.windows.net/assets/water with hands.jpg");'></div>
+
+                </div>
+            </div>
+
+            <form asp-action="Login" asp-controller="Account" asp-antiforgery="true" method="post" role="form">
+                <div class="outer">
+                    <div class="middle">
+                        <div class="inner">
+                            <div class="row col-12">
+                                <div class="col-12 rightstuff">
+                                    @*<img role="presentation" src="~/images/saflogo.png" width="350" />*@
+                                    <img role="presentation" src="~/images/0001.jpg" width="350" />
+                                </div>
+                                <div class="col-12 mt-2 up">
+                                    @* <span class="text-titles">
+                                        TAPPT Smart Water<sup> ©</sup>
+
+                                        </span> *@
+                                </div>
+                            </div>
+                            <div role="main">
+                                <div class="pagination-view">
+                                    <div data-viewid="1">
+                                        <div>
+                                            <div class="row text-title"
+                                                 id="loginHeader"
+                                                 role="heading">
+                                                <div aria-level="1" data-bind="text: title">
+                                                    Sign in
+                                                </div>
+                                            </div>
+                                            <div asp-validation-summary="All" class="text-danger"></div>
+                                            <div class="row">
+                                                <div class="form-group col-md-24">
+
+                                                    <div style="margin-bottom:10px;">
+
+                                                        <input asp-for="EmailAddress" class="form-control" type="email" required placeholder="user name">
+                                                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+
+                                                    </div>
+                                                    <div>
+                                                        <input asp-for="Password" class="form-control" type="password" required placeholder="password">
+                                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-buttons">
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-md-24">
+                                                        <div class="text-13 action-links">
+                                                            <div class="form-group" style="font-size:12px;">
+                                                                <a id="cantAccessAccount"
+                                                                   href="#">Can’t access your account?</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row col-12">
+
+                                                <div class="col-12 form-group no-margin-bottom button-container ">
+                                                    <div class="inline-block bottomstuff">
+                                                        <button type="submit"
+                                                                id="idSIButton10"
+                                                                class="btn btn-block btn-primary">
+                                                            Login
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="loading" align="center">
+                                                Loading portal. Please wait....<br />
+                                                <br />
+                                                <img src="https://www.aspsnippets.com/demos/loader.gif" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var modal, loading;
+    function ShowProgress() {
+        modal = document.createElement("DIV");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+        loading = document.getElementsByClassName("loading")[0];
+        loading.style.display = "block";
+        var top = Math.max(window.innerHeight / 2 - loading.offsetHeight / 2, 0);
+        var left = Math.max(window.innerWidth / 2 - loading.offsetWidth / 2, 0);
+        loading.style.top = top + "px";
+        loading.style.left = left + "px";
+    };
+
+    function HideProgress() {
+        document.body.removeChild(modal);
+        loading.style.display = "none";
+    };
+    $(function () {
+        $("#idSIButton10").click(function () {
+            //show the loading image
+            ShowProgress();
+
+            //using JQuery ajax to call the event handler and login,
+            //and then, in the Ajax success function, call the HideProgress function to hide the loading image.
+            setTimeout(function () {
+                HideProgress();
+            }, 20000);
+        });
+    });
+</script>
+
+
+
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+
+}

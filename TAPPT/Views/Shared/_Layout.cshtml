@@ -1,0 +1,892 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="~/images/gosoftfavicon.png" type="favicon" />
+    <title style="color:black;font:bold;">@ViewData["Title"] TAPPT by GoSOft.io</title>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <!-- Font family -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:600&display=swap" rel="stylesheet">
+
+    <!-- Datatables -->
+    @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/r-2.2.3/sl-1.3.1/datatables.min.css" />*@
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/af-2.3.4/b-1.6.1/b-colvis-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/fc-3.3.0/fh-3.1.6/kt-2.5.1/r-2.2.3/rg-1.1.1/rr-1.2.6/sc-2.0.1/sp-1.0.1/sl-1.3.1/datatables.min.css" />
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/assets/css/app.css" />
+
+    <!-- Other Css -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/backdrop.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+    <link href="~/assets/css/styling.css" rel="stylesheet" />
+    <link href="~/assets/css/font.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="light sidebar-mini sidebar-collapse" id="app">
+    <!-- copy from here -->
+    <!-- Pre loader -->
+    <div id="loader" class="loader">
+        <div class="plane-container">
+            <div class="preloader-wrapper small active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app" class"font-weight-bold">
+        <aside class="main-sidebar fixed offcanvas b-r sidebar-tabs"
+               data-toggle="offcanvas">
+            <div class="sidebar">
+                <div class="d-flex hv-100 align-items-stretch">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div class="mygreen text-white">
+                            <div class="nav mt-2 pt-5 flex-column nav-pills"
+                                 id="v-pills-tab"
+                                 role="tablist"
+                                 aria-orientation="vertical">
+                                <a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-toggle="pill"
+                                   data-placement="right"
+                                   title="Home!"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon-dashboard2 s-20"></i>
+
+                                </a>
+                                @*<a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-placement="right"
+                                   title="Revenue Management"
+                                   data-toggle="pill"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon-money2 s-20"></i>
+
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-placement="right"
+                                   title="Billing"
+                                   data-toggle="pill"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon-money s-20"></i>
+
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-placement="right"
+                                   title="Tariff Management"
+                                   data-toggle="pill"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon-document2 s-20"></i>
+
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-placement="right"
+                                   title="Bouquets and Alarms"
+                                   data-toggle="pill"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon icon-cogs s-20"></i>
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-placement="right"
+                                   title="User Management"
+                                   data-toggle="pill"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon-user-plus s-20"></i>
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-placement="right"
+                                   title="Water Utilities"
+                                   data-toggle="pill"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon icon-clipboard3 s-20"></i>
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-placement="right"
+                                   title="Audit Logs"
+                                   data-toggle="pill"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon icon-database s-20"></i>
+                                </a>*@
+
+                                <a href="#">
+                                    <figure class="avatar"></figure>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    @if (User.IsInRole("WSPAdmin"))
+                    {
+                        <div class="mygreen text-white">
+                            <div class="nav mt-2 pt-5 flex-column nav-pills"
+                                 id="v-pills-tab"
+                                 role="tablist"
+                                 aria-orientation="vertical">
+                                <a class="nav-link"
+                                   id="v-pills-home-tab"
+                                   data-toggle="pill"
+                                   data-placement="right"
+                                   title="Home!"
+                                   href="#v-pills-home"
+                                   role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true">
+                                    <i class="icon-dashboard2 s-20"></i>
+
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab1"
+                                   data-toggle="pill"
+                                   data-placement="right"
+                                   title="Meter Functions"
+                                   href="#v-pills-home1"
+                                   role="tab"
+                                   aria-controls="v-pills-home1"
+                                   aria-selected="true">
+                                    <i class="icon-calculator s-20"></i>
+
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab2"
+                                   data-toggle="pill"
+                                   data-placement="right"
+                                   title="User Functions"
+                                   href="#v-pills-home2"
+                                   role="tab"
+                                   aria-controls="v-pills-home2"
+                                   aria-selected="true">
+                                    <i class="icon-user-circle s-20"></i>
+
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab3"
+                                   data-toggle="pill"
+                                   data-placement="right"
+                                   title="Billing"
+                                   href="#v-pills-home3"
+                                   role="tab"
+                                   aria-controls="v-pills-home3"
+                                   aria-selected="true">
+                                    <i class="icon-money s-20"></i>
+
+                                </a>
+                                <a class="nav-link"
+                                   id="v-pills-home-tab4"
+                                   data-toggle="pill"
+                                   data-placement="right"
+                                   title="Administration"
+                                   href="#v-pills-home4"
+                                   role="tab"
+                                   aria-controls="v-pills-home4"
+                                   aria-selected="true">
+                                    <i class="icon-users s-20"></i>
+                                </a>
+                                <a class="nav-link "
+                                   id="v-pills-home-tab5"
+                                   data-toggle="pill"
+                                   data-placement="right"
+                                   title="Tariff Management"
+                                   href="#v-pills-home5"
+                                   role="tab"
+                                   aria-controls="v-pills-home5"
+                                   aria-selected="true">
+                                    <i class="icon-document2 s-20 "></i>
+                                </a>
+                                @*<a class="nav-link "
+                                       id="v-pills-home-tab6"
+                                       data-toggle="pill"
+                                       data-placement="right"
+                                       title="Maps And Location"
+                                       href="#v-pills-home6"
+                                       role="tab"
+                                       aria-controls="v-pills-home6"
+                                       aria-selected="true">
+                                        <i class="icon-map-signs s-20 "></i>
+                                    </a>*@
+                                <a class="nav-link "
+                                   id="v-pills-home-tab7"
+                                   data-toggle="pill"
+                                   data-placement="right"
+                                   title="Help And Support"
+                                   href="#v-pills-home7"
+                                   role="tab"
+                                   aria-controls="v-pills-home7"
+                                   aria-selected="true">
+                                    <i class="icon-help s-20"></i>
+                                </a>
+                                <a href="#">
+                                    <figure class="avatar"></figure>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    <div class="tab-content flex-grow-1" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active"
+                             id="v-pills-home"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-home-tab">
+                            <div class="relative brand-wrapper sticky b-b">
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <div class="text-xs-center">
+                                        <span class="font-weight-lighter s-18">Menu</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="sidebar-menu">
+                                <li class="treeview">
+                                    <a href="/">
+                                        <i class="icon icon-dashboard2 s-24 text-mygreen"></i>
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="treeview">
+                                        <a href="/Admin/RevenueManagement">
+                                            <i class="icon icon icon-money2 s-24 text-mygreen"></i>
+                                            <span>Revenue management</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="/Admin/Billing">
+                                            <i class="icon icon icon-money s-24 text-mygreen"></i>
+                                            <span>Billing</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon icon-document-text2 s-24 text-mygreen"></i>
+                                            <span>Tariffs</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Setting/Tariffs">
+                                                    <i class="icon icon-circle-o"></i>Tariffs
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Setting/AddTariff">
+                                                    <i class="icon icon-add"></i>Add a new Tariff
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-cogs s-24 text-mygreen"></i>
+                                            <span>Bouquets and Alarms</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Admin/Bouquets">
+                                                    <i class="icon icon-circle-o"></i>Bouquets
+                                                </a>
+                                            </li>
+                                            @*<li>
+                                                    <a href="/Admin/ManageBauquet">
+                                                        <i class="icon icon-cog"></i>Manage Bouquets
+                                                    </a>
+                                                </li>*@
+                                            <li>
+                                                <a href="/Admin/Alarms">
+                                                    <i class="icon icon-alarm"></i>Alarms Configuration
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-user-plus s-24 text-mygreen"></i>
+                                            <span>User Management</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Account/AddAdmin">
+                                                    <i class="icon icon-add"></i>Add User
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Admin/Users">
+                                                    <i class="icon icon-add"></i>Manage Users
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-clipboard3 s-24 text-mygreen"></i>
+                                            <span>Water Utilities</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Setting/Utilities">
+                                                    <i class="icon icon-circle-o"></i>Utilities
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Setting/AddUtility">
+                                                    <i class="icon icon-add"></i>Add New Utility
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="/Admin/AuditLogs">
+                                            <i class="icon icon icon-database s-24 text-mygreen"></i>
+                                            <span>Audit Logs</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+
+                                    </li>
+
+
+                                }
+                                @if (User.IsInRole("Management"))
+                                {
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-user-plus s-24 text-mygreen"></i>
+                                            <span>User Management</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Admin/Users">
+                                                    <i class="icon icon-add"></i>Manage Users
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (User.IsInRole("Support"))
+                                {
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-user-plus s-24 text-mygreen"></i>
+                                            <span>User Management</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Admin/Users">
+                                                    <i class="icon icon-add"></i>Manage Users
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon icon-document-text2 s-24 text-mygreen"></i>
+                                            <span>Tariffs</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Setting/Tariffs">
+                                                    <i class="icon icon-circle-o"></i>Tariffs
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-clipboard3 s-24 text-mygreen"></i>
+                                            <span>Water Utilities</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Setting/Utilities">
+                                                    <i class="icon icon-circle-o"></i>Utilities
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Setting/AddUtility">
+                                                    <i class="icon icon-add"></i>Add New Utility
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="/Admin/AuditLogs">
+                                            <i class="icon icon icon-database s-24 text-mygreen"></i>
+                                            <span>Audit Logs</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+
+                                    </li>
+                                }
+                                @if (User.IsInRole("WSPAdmin"))
+                                {
+
+
+                                }
+                                @if (User.IsInRole("CustomerAdmin"))
+                                {
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-clipboard3 s-24 text-mygreen"></i>
+                                            <span>Water Utilities</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Setting/Utilities">
+                                                    <i class="icon icon-circle-o"></i>Utilities
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Setting/AddUtility">
+                                                    <i class="icon icon-add"></i>Add New Utility
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon icon-dashboard s-24 text-mygreen"></i>
+                                            <span>WSP DashBoard</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+
+                                    </li>
+                                }
+                                @if (User.IsInRole("CustomerManagement"))
+                                {
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-user-circle s-24 text-mygreen"></i>
+                                            <span>WSP User Management</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="/Admin/WSPUsers">
+                                                    <i class="icon icon-cog"></i>Manage Users
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icon icon-money"></i>View Billing
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon icon-dashboard s-24 text-mygreen"></i>
+                                            <span>WSP DashBoard</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade "
+                             id="v-pills-home1"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-home-tab1">
+                            <div class="relative brand-wrapper sticky b-b">
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <div class="text-xs-center">
+                                        <span class="font-weight-lighter s-18">Meter Functions</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="sidebar-menu">
+
+                                <li>
+                                    <a href="/WSP/Meters">
+                                        <i class="icon icon-search s-24 text-mygreen"></i>Search for a meter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/MetersByZone">
+                                        <i class="icon icon-search s-24 text-mygreen"></i>Search meters by zone
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/QueryMeters">
+                                        <i class="icon icon-search s-24 text-mygreen"></i>Search for meters filter
+                                    </a>
+                                </li>
+
+
+
+
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade "
+                             id="v-pills-home2"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-home-tab2">
+                            <div class="relative brand-wrapper sticky b-b">
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <div class="text-xs-center">
+                                        <span class="font-weight-lighter s-18">Customers</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="sidebar-menu">
+                                <li>
+                                    <a href="/WSP/Customers">
+                                        <i class="icon icon-search s-24 text-mygreen"></i>Search for single customer
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/CustomersByZone">
+                                        <i class="icon icon-search s-24 text-mygreen"></i>Search customers by zone
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Account/AddCustomer">
+                                        <i class="icon icon-add s-24 text-mygreen"></i>Add a customer
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade "
+                             id="v-pills-home3"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-home-tab3">
+                            <div class="relative brand-wrapper sticky b-b">
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <div class="text-xs-center">
+                                        <span class="font-weight-lighter s-18">Billing</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="sidebar-menu">
+                                <li class="treeview">
+                                    <a href="/WSP/Customers">
+                                        <i class=" icon icon-user-circle-o s-24 text-mygreen"></i>Billing by Customer
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/BillingByZone">
+                                        <i class="icon icon-users s-24 text-mygreen"></i>Billing by Zone
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/MonthlyBills">
+                                        <i class="icon icon-document-time2 s-24 text-mygreen"></i>Generate Monthly Bills
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/PaidBills">
+                                        <i class="icon icon-check_box s-24 text-mygreen"></i>Paid Bills
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/UnPaidBills">
+                                        <i class="icon icon-window-close-o s-24 text-mygreen"></i>Unpaid Bills
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade"
+                             id="v-pills-home4"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-home-tab4">
+                            <div class="relative brand-wrapper sticky b-b">
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <div class="text-xs-center">
+                                        <span class="font-weight-lighter s-18">Adminstration</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="sidebar-menu">
+                                <li>
+                                    <a href="/Users/Adduser">
+                                        <i class="icon icon-user-plus s-24 text-mygreen"></i>Add user
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/Zones">
+                                        <i class="icon icon-my_location s-24 text-mygreen"></i>Zones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/WSP/AddZone">
+                                        <i class="icon icon-add_location s-24 text-mygreen"></i>Add Zone
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade"
+                             id="v-pills-home5"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-home-tab5">
+                            <div class="relative brand-wrapper sticky b-b">
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <div class="text-xs-center">
+                                        <span class="font-weight-lighter s-18">Tariffs</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="sidebar-menu">
+                                <li>
+                                    <a href="/WSP/Tariffs">
+                                        <i class="icon icon-document-diagrams2 s-24 text-mygreen"></i>View Tariffs
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade"
+                             id="v-pills-home6"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-home-tab6">
+                            <div class="relative brand-wrapper sticky b-b">
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <div class="text-xs-center">
+                                        <span class="font-weight-lighter s-18">Menu</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="sidebar-menu">
+
+                                @*<li class="treeview">
+                                        <a href="#">
+                                            <i class="icon icon-map-signs s-24 text-mygreentwo"></i>
+                                            <span>Maps and location</span>
+                                            <span class="icon-angle-left pull-right"></span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="WSP/MapAndLocation">
+                                                    <i class="icon icon-circle-o"></i>View map
+                                                </a>
+
+                                            </li>
+
+                                        </ul>
+                                    </li>*@
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade"
+                             id="v-pills-home7"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-home-tab7">
+                            <div class="relative brand-wrapper sticky b-b">
+                                <div class="d-flex justify-content-between align-items-center p-3">
+                                    <div class="text-xs-center">
+                                        <span class="font-weight-lighter s-18">Help And Support</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="sidebar-menu">
+
+                                <li class="treeview">
+                                    <a href="/Help/Support">
+                                        <i class="icon icon-help s-24 text-mygreentwo"></i>Help and support
+                                    </a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade"
+                             id="v-pills-profile"
+                             role="tabpanel"
+                             aria-labelledby="v-pills-profile-tab">
+                            <div class="relative brand-wrapper sticky b-b p-3">
+                            </div>
+                            <div class="sticky slimScroll"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <a href="#" data-toggle="push-menu" class=" text-mygreen paper-nav-toggle left ml-2 fixed text-white">
+            <i></i>
+        </a>
+        <div class="has-sidebar-left has-sidebar-tabs">
+            <!--navbar-->
+            <div class="sticky">
+                <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white shadow">
+                    <div class="relative">
+                        <a href="/">
+                            <div class="d-none d-md-block">
+                                <img src="~/images/0001.jpg" height="80" />
+                            </div>
+                        </a>
+
+                    </div>
+                    <!--Top Menu Start -->
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+
+                            <li class="dropdown custom-dropdown user user-menu " data-toggle="modal" data-target="#logoutModal1">
+                                <a href="#" class="nav-link" style="color:black;font:bold;">
+                                    @User.FindFirst("Email")?.Value
+                                    <i class="icon-more_vert "></i>
+                                </a>
+                                <div class="dropdown-menu p-4 dropdown-menu-right center">
+                                    <div class="row box justify-content-between my-4">
+
+
+                                    </div>
+                                    <hr />
+                                </div>
+                            </li>
+                            <!-- New user Accounts end-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--#navbar-->
+            <!-- endof copy -->
+            @RenderBody()
+
+            <!--Logout Modal -->
+            <div class="modal shadow fade modal-notification" id="logoutModal1" tabindex="-1" role="dialog" aria-labelledby="standardModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" id="standardModalLabel">
+                    <div class="modal-content">
+
+                        <div class="modal-body text-center">
+                            <div class="icon-content mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            </div>
+                            <h4 class="modal-text mb-3">Are you sure you want to logout?</h4>
+                        </div>
+                        <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm">
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-danger shadow-lg" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Cancel</button>
+                                <button type="submit" class="btn btn-primary">Yes, Log Me Out</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Logout Modal end -->
+        </div>
+        <footer>
+            <div class="copyright text-center">
+                Copyright &copy; 2022 <span>Gosoft </span>
+            </div>
+        </footer>
+    </div>
+
+
+    <!--all other js -->
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/otherjs.js"></script>
+    <script src="~/assets/js/globalConstants.js"></script>
+    <script src="~/assets/js/notify.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5"></script>
+    <!--Datatables -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/af-2.3.4/b-1.6.1/b-colvis-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/fc-3.3.0/fh-3.1.6/kt-2.5.1/r-2.2.3/rg-1.1.1/rr-1.2.6/sc-2.0.1/sp-1.0.1/sl-1.3.1/datatables.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

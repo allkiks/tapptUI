@@ -1,0 +1,21 @@
+//{
+//  "name": "TAPPT Smart Water Platform",
+//  "short_name": "TAPPT Smart Water",
+//  "description": "TAPPT Smart Water",
+//  "icons": [
+//    {
+//      "src": "https://TAPPT-web.azurewebsites.net/images/saflogo.png",
+//      "sizes": "192x192"
+//    },
+//    {
+//      "src": "https://TAPPT-web.azurewebsites.net/images/water.jpg",
+//      "sizes": "512x512"
+//    }
+//  ],
+//  "display": "standalone",
+//  "start_url": "https://TAPPT-web.azurewebsites.net/",
+//  "lang": "",
+//  "screenshots": [],
+
+//  "generated": "undefined"
+//}

@@ -1,0 +1,176 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "HelP And Support";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid animatedParent animateOnce">
+    <div class="tab-content my-3" id="v-pills-tabContent">
+        <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+
+            <div class="tab-content my-3" id="v-pills-tabContent">
+                <div class="card no-b r-0 shadow">
+                    <div class="card-body">
+                        <div class="row my-3 ">
+                            <div class="col-md-12">
+                                <h3>Ask For Help  </h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-3">
+
+                <div class="col-12 col-xl-12">
+                    <div class="card shadow r-0 no-b">
+                        <div class="card-header mygreentwo text-white">
+                            <h4><i class="icon-message mr-2 mb-5"></i>Help And Support</h4>
+                            <div class="d-flex justify-content-between">
+                                <div class="align-self-end">
+                                    <ul class="nav nav-material nav-material-white card-header-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active show" id="w6--tab1" data-toggle="tab" href="#w6-tab1" role="tab" aria-controls="tab1" aria-expanded="true" aria-selected="true">FAQ'S</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="w6--tab2" data-toggle="tab" href="#w6-tab2" role="tab" aria-controls="tab2" aria-selected="false">Chat With Us</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="w6--tab3" data-toggle="tab" href="#w6-tab3" role="tab" aria-controls="tab3" aria-selected="false">Send Us An Email</a>
+                                        </li>
+
+                                    </ul>
+                                    <a data-toggle="pill"
+                                       data-placement="right"
+                                       title="Help And Support"
+                                       class="btn-fab btn-fab fab-right-bottom absolute shadow btn-primary"><i class="icon-help"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body shadow r-0 no-p">
+                            <div class="tab-content" id="v-pills-tabContent2">
+                                <div class="tab-pane fade active show" id="w6-tab1" role="tabpanel" aria-labelledby="w6-tab1">
+                                    @* Tab 1 Content here *@
+                                </div>
+                                <div class="tab-pane fade " id="w6-tab2" role="tabpanel" aria-labelledby="w6-tab2">
+                                    <div class="row my-3">
+
+                                        <div class="col-md-12">
+                                            <div class="">
+
+                                                <div class="chat-widget  slimScroll" data-height="350">
+                                                    <div class="w-body w-scroll">
+                                                        <ul class="list-unstyled">
+                                                            <!-- Chat by us. Use the class "by-me". -->
+                                                            <li class="by-me mb-3">
+                                                                <!-- Use the class "float-left" in avatar -->
+                                                                <div class="avatar float-left">
+                                                                    <!-- Online or offline -->
+                                                                    <b class="c-idle"></b>
+                                                                    <i class="icon icon-circle-o"></i>
+                                                                    <!-- Name -->
+
+                                                                </div>
+                                                                <div class="chat-content">
+                                                                    <!-- In meta area, first include "name" and then "time" -->
+                                                                    <div class="chat-meta">
+                                                                        Sent
+                                                                        <span class="float-right">3 hours ago</span>
+                                                                    </div>
+                                                                    Hello , How do I Add a new customer ?
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                            </li>
+                                                            <!-- Chat by other. Use the class "by-other". -->
+                                                            <li class="by-other">
+                                                                <!-- Use the class "float-right" in avatar -->
+                                                                <div class="avatar mygrey float-right">
+                                                                    <!-- Online or offline -->
+                                                                    <b class="c-off"></b>
+                                                                    <i class="icon mygrey icon-circle-o"></i>
+                                                                    <!-- Name -->
+
+                                                                </div>
+                                                                <div class="chat-content">
+                                                                    <!-- In the chat meta, first include "time" then "name" -->
+                                                                    <div class="chat-meta">
+                                                                        3 hours ago
+                                                                        <span class="float-right">Received</span>
+                                                                    </div>
+                                                                    Hello you can add a customer under the customer tab on the add customer page.
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer bg-light">
+                                                    <!-- Chat button -->
+                                                    <form>
+                                                        <div class="input-group">
+                                                            <input class="form-control" placeholder="Type your message..." type="text">
+                                                            <span class="input-group-btn">
+                                                                <button type="submit" class="btn btn-primary">Send</button>
+                                                            </span>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade " id="w6-tab3" role="tabpanel" aria-labelledby="w6-tab3">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="card b-0 r-0 shadow">
+                                                <form method="post">
+                                                    @*<div class="form-group has-icon m-0">
+                                                            <i class="icon-envelope-o"></i>
+                                                            <input class="form-control form-control-lg r-0 b-0" type="text"
+                                                                   name="email" id="email" placeholder="Recipient Email Address">
+                                                        </div>*@
+                                                    <div class="b-b"></div>
+                                                    <div class="form-group has-icon m-0">
+                                                        <i class="icon-subject"></i>
+                                                        <input class="form-control form-control-lg r-0 b-0" type="text"
+                                                               name="email" id="subject" placeholder="Subject">
+
+                                                    </div>
+                                                    <textarea class="trumbowyg-editor" placeholder="Write Something..."
+                                                              rows="10"></textarea>
+                                                    <div class="b-b"></div>
+                                                    <input hidden id="file" name="file" />
+                                                    <div class="dropzone dropzone-file-area p-3 m-3 bg-light" id="fileUpload">
+                                                        <div class="dz-default dz-message">
+                                                            <span>You Can Upload A ScreenShot To Describe Your Problem </span>
+                                                            <div>You can also click to open file browser</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer">
+
+                                                        <button class="btn btn-primary l-s-1 s-12 text-uppercase">
+                                                            Send Message
+                                                        </button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

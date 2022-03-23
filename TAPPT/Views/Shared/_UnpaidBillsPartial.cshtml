@@ -1,0 +1,249 @@
+﻿
+@model IEnumerable<BillingDownloadSerializer>
+
+@if (Model.Any())
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b shadow mb-4">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Unpaid Bills</h1>
+                            <h6>Select a month and View unpaid bills</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card r-0 shadow">
+
+                <div class="card-body b-b">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <form class="form-inline" asp-action="MonthUnPaidBills" asp-controller="WSP" asp-antiforgery="true" method="post">
+
+                                <div class="input-group mb-0 mr-sm-2">
+                                    <div class="form-group  m-0">
+                                        <div class="mt-2">
+                                            <h3>Month: </h3>
+                                        </div>
+                                        <select name="month" id="month" class="form-control has-right-icon">
+                                            <option value="">Select Month</option>
+                                            <option value="January">January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-0 m-0">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-primary">View Bills</button>
+                                    </span>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class=" col-lg-2">
+                            <div class="float-right">
+                                <span class="input-group-btn">
+                                    <a href="/WSP/MonthPaidBills" class="btn btn-success">Paid Bills</a>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab-pane animated fadeInUpShort" id="v-pills-buyers" role="tabpanel" aria-labelledby="v-pills-buyers-tab">
+                </div>
+                <div class="container-fluid animatedParent animateOnce">
+                    <div class="row my-3">
+                        <div class="col-md-12">
+                            <div class="card r-0 shadow">
+                                <div class="panel-heading">
+                                    <div class="panel-body text-center panelsetup">
+                                        <h4>Billing Details</h4>
+                                        <hr />
+
+                                    </div>
+                                </div>
+                                <div class="table-responsive datatablestyle">
+                                    <table id="tryy" class="table table-striped table-bordered dataTables-example" style="width:100%">
+                                        <thead>
+                                            <tr class="no-b">
+                                                <th>
+                                                    <div class="d-none d-lg-block">Time and Date Generated</div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-none d-lg-block">Customer Name</div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-none d-lg-block">Account Number</div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-none d-lg-block">Invoice Number</div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-none d-lg-block">Consumption</div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-none d-lg-block">Amount</div>
+                                                </th>
+                                                @*<th>
+                                                        <div class="d-none d-lg-block">Payment Status</div>
+                                                    </th>*@
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.DateCreated
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.CustomerName
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.AccountNumber
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.InvoiceNumber
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.Consumption
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-none d-lg-block">
+                                                        @item.Amount
+                                                    </div>
+                                                </td>
+                                                @*<td>
+            <div class="d-none d-lg-block">
+                @item.PaymentStatus
+            </div>
+        </td>*@
+                                            </tr>
+                                            }
+                                        </tbody>
+                                        @*<tfoot>
+                                                <tr class="no-b">
+                                                    <th>
+                                                        <div class="d-none d-lg-block">Date Created</div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="d-none d-lg-block">Account Number</div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="d-none d-lg-block">Invoice Number</div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="d-none d-lg-block">Consumption</div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="d-none d-lg-block">Amount</div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="d-none d-lg-block">Payment Status</div>
+                                                    </th>
+                                                </tr>
+                                            </tfoot>*@
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b ">
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Unpaid Bills</h1>
+                            <h6>Select month and press view bills</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+
+            <div class="card r-0 shadow">
+
+                <div class="card-body b-b">
+
+                    <form class="form-inline" asp-action="MonthUnPaidBills" asp-controller="WSP" asp-antiforgery="true" method="post">
+
+                        <div class="input-group mb-0 mr-sm-2">
+                            <div class="form-group  m-0">
+                                <div class="mt-2">
+                                    <h3>Month: </h3>
+                                </div>
+                                <select name="month" id="month" class="form-control has-right-icon">
+                                    <option value="">Select Month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-0 m-0">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary">View Bills</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+

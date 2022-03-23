@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewData["Title"] = "AddTarrif";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="animated fadeInUpShort">
+            <div class="row my-3">
+                <div class="col-md-8 offset-md-2">
+                    <form action="#">
+                        <div class="card no-b">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Fill in the details below to add a new tariff
+                                </h5>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">Tariff name</label>
+                                            <input id="tariffName"
+                                                   placeholder="Enter User Name"
+                                                   class="form-control r-0 light s-12 "
+                                                   type="text" />
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">Tariff ID</label>
+                                            <input id="tariffId"
+                                                   placeholder="Enter User Name"
+                                                   class="form-control r-0 light s-12 "
+                                                   type="text" />
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">Tariff rate</label>
+                                            <input id="tariffRate"
+                                                   placeholder="Enter User Name"
+                                                   class="form-control r-0 light s-12 "
+                                                   type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="icon-save mr-2"> </i>Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

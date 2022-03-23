@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewData["Title"] = "AddDevice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="animated fadeInUpShort">
+            <div class="row my-3">
+                <div class="col-md-8 offset-md-2">
+                    <form action="#">
+                        <div class="card no-b">
+                            <div class="card-body">
+                                <h5 class="card-title">Add device</h5>
+                                <div class="form-row">
+                                    <div class="col-md-8">
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">DEVICE NAME</label>
+                                            <input id="devicenname"
+                                                   placeholder="Enter device name"
+                                                   class="form-control r-0 light s-12 "
+                                                   type="text" />
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6 m-0">
+                                                <label for="cnic" class="col-form-label s-12"><i class="icon-id-card"></i>DEVICE ID</label>
+                                                <input id="cnic"
+                                                       placeholder="Enter device id"
+                                                       class="form-control r-0 light s-12 date-picker"
+                                                       type="text" />
+                                            </div>
+                                            <div class="form-group col-md-6 m-0">
+                                                <label for="dob" class="col-form-label s-12">
+                                                    <i class="icon-calendar mr-2"></i>DEVICE
+                                                    IMEI
+                                                </label>
+                                                <input id="dob"
+                                                       placeholder="Enter device IMEI number"
+                                                       class="form-control r-0 light s-12 datePicker"
+                                                       data-format-date="Y/m/d"
+                                                       type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 offset-md-1">
+                                        <span>
+                                            <i class="icon icon icon-calculator s-128 text-light-blue"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row mt-1">
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="email" class="col-form-label s-12">
+                                            <i class="icon-sim_card mr-2"></i>Simcard
+                                            number
+                                        </label>
+                                        <input id="simcardnumner"
+                                               placeholder="Enter the device simcard number "
+                                               class="form-control r-0 light s-12 "
+                                               type="text" />
+                                    </div>
+
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="phone" class="col-form-label s-12"><i class="icon-room mr-2"></i>Location</label>
+                                        <input id="loaction"
+                                               placeholder="Enter device location"
+                                               class="form-control r-0 light s-12 "
+                                               type="text" />
+                                    </div>
+                                    <div class="form-group col-md-4 m-0">
+                                        <label for="mobile" class="col-form-label s-12"><i class="icon-mobile-phone mr-2"></i>Station</label>
+                                        <input id="mobile"
+                                               placeholder="eg: station1"
+                                               class="form-control r-0 light s-12 "
+                                               type="text" />
+                                    </div>
+
+                                    <div class="form-group m-0">
+                                        <label for="dob" class="col-form-label s-12">Device Type</label>
+                                        <br />
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio"
+                                                   id="male"
+                                                   name="gender"
+                                                   class="custom-control-input" />
+                                            <label class="custom-control-label" for="male">Prepaid</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio"
+                                                   id="female"
+                                                   name="gender"
+                                                   class="custom-control-input" />
+                                            <label class="custom-control-label" for="female">Postpaid</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="icon-save mr-2"></i>Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+

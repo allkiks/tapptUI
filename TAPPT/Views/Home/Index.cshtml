@@ -1,0 +1,26 @@
+﻿
+@if (User.IsInRole("Admin"))
+{
+    @await Component.InvokeAsync("AdminDashBoard")
+}
+@if (User.IsInRole("Management"))
+{
+    @await Component.InvokeAsync("AdminDashBoard")
+}
+@if (User.IsInRole("Support"))
+{
+    @await Component.InvokeAsync("AdminDashBoard")
+}
+@if (User.IsInRole("CustomerAdmin"))
+{
+    @await Component.InvokeAsync("AdminDashBoard")
+}
+@if (User.IsInRole("CustomerManagement"))
+{
+    @await Component.InvokeAsync("AdminDashBoard")
+}
+
+@if (User.IsInRole("WSPAdmin"))
+{
+    @await Component.InvokeAsync("WSPDashBoard", new { id = ViewBag.Id })
+}

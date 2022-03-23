@@ -1,0 +1,391 @@
+﻿@model IEnumerable<WSPGetMeter>
+@if (Model.Any())
+{
+    <div class="container-fluid animatedParent animateOnce">
+
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+
+                <div class="tab-pane animated fadeInUpShort" id="v-pills-buyers" role="tabpanel" aria-labelledby="v-pills-buyers-tab">
+                </div>
+                @foreach (var item in Model)
+                {
+                    <header class="white pt-3 relative shadow">
+                        <div class="container-fluid">
+                            <div class="row p-t-b-10 ">
+                                <div class="col">
+                                    <div class="pb-3">
+                                        <div class="image mr-3  float-left">
+                                            <div class="icon-calculator text-mygreentwo s-48"></div>
+                                        </div>
+                                        <div>
+                                            <h6 class="p-t-10">@item.MeterCode</h6>@item.OwnerAddress
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <ul class="nav nav-material responsive-tab" id="v-pills-tab" role="tablist">
+                                    <li>
+                                        <a class="nav-link active" id="v-pills-tab1-tab" data-toggle="pill" href="#v-pills-tab1" role="tab" aria-controls="v-pills-tab1">
+                                            <i class="icon icon-home2"></i>Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" id="v-pills-payments-tab" data-toggle="pill" href="#v-pills-payments" role="tab" aria-controls="v-pills-payments" aria-selected="false"><i class="icon icon-list-alt"></i>Meter Details</a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="container-fluid animatedParent animateOnce my-3">
+                        <div class="animated fadeInUpShort">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-tab1" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                    <div class="row">
+                                        <!-- main device details -->
+                                        <div class="col-md-12">
+                                            <!-- copy from here for main cards -->
+                                            <!--Style Start 2-->
+                                            <div class="row my-3">
+                                                <div class="col-lg-3">
+                                                    <div class="counter-box mygrey r-3">
+                                                        <div class="p-4">
+                                                            <div class="float-right">
+                                                                <span class="icon icon-note-list text-white s-48"></span>
+                                                            </div>
+                                                            <div class="counter-title text-white">
+                                                                Accumulated Consumption
+                                                            </div>
+                                                            <h5 class="mt-3 text-white">@item.AccumulatedFlowRate  (m<sup>3</sup>)</h5>
+                                                        </div>
+                                                        <div class="progress progress-xs r-0">
+                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="counter-box mygrey r-3">
+                                                        <div class="p-4">
+                                                            <div class="float-right">
+                                                                <span class="icon icon-note-list text-white s-48"></span>
+                                                            </div>
+                                                            <div class="counter-title text-white ">
+                                                                Today's Consumption
+                                                            </div>
+                                                            <h5 class="mt-3 text-white">@item.TodaysFlow (m<sup>3</sup>)</h5>
+                                                        </div>
+                                                        <div class="progress progress-xs r-0">
+                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="mygrey counter-box">
+                                                        <div class="p-4">
+                                                            <div class="float-right">
+                                                                <span class="icon icon-certificate text-white s-48"></span>
+                                                            </div>
+                                                            <div class="counter-title text-white">
+                                                                Meter's Humidity
+                                                            </div>
+                                                            <h5 class="text-white mt-3">@item.Humidity</h5>
+                                                        </div>
+                                                        <div class="progress progress-xs r-0">
+                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="mygrey counter-box">
+                                                        <div class="p-4">
+                                                            <div class="float-right">
+                                                                <span class="icon icon-thermometer-3 text-white s-48"></span>
+                                                            </div>
+                                                            <div class="counter-title text-white">
+                                                                Water's Temperture
+                                                            </div>
+                                                            <h5 class="mt-3 text-white">@item.WaterTemperature <sup>o</sup>C</h5>
+                                                        </div>
+                                                        <div class="progress progress-xs r-0">
+                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end from here for main cards -->
+                                        </div>
+                                        <div class="col-md-12">
+                                            <!-- copy from here for main cards -->
+                                            <!--Style Start 2-->
+                                            <div class="row my-3">
+                                                <div class="col-lg-3">
+                                                    <div class="counter-box mygrey r-3">
+                                                        <div class="p-4">
+                                                            <div class="float-right">
+                                                                <span class="icon icon-room text-white s-48"></span>
+                                                            </div>
+                                                            <div class="counter-title text-white">
+                                                                County
+                                                            </div>
+                                                            <h5 class="mt-3 text-white">@item.County</h5>
+                                                        </div>
+                                                        <div class="progress progress-xs r-0">
+                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="counter-box mygrey r-3">
+                                                        <div class="p-4">
+                                                            <div class="float-right">
+                                                                <span class="icon icon-barometer text-white s-48"></span>
+                                                            </div>
+                                                            <div class="counter-title text-white ">
+                                                                Current Water Pressure
+                                                            </div>
+                                                            <h5 class="mt-3 text-white">@item.WaterPressure Pa</h5>
+                                                        </div>
+                                                        <div class="progress progress-xs r-0">
+                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="mygrey counter-box">
+                                                        <div class="p-4">
+                                                            <div class="float-right">
+                                                                <span class="icon icon-battery-three-quarters text-white s-48"></span>
+                                                            </div>
+                                                            <div class="counter-title text-white">
+                                                                Current Battery Voltage
+                                                            </div>
+                                                            <h5 class="text-white mt-3">@item.BateryVoltage</h5>
+                                                        </div>
+                                                        <div class="progress progress-xs r-0">
+                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="mygreentwo counter-box">
+                                                        <div class="p-4">
+                                                            <div class="float-right">
+                                                                <span class="icon icon-cloud_queue text-white s-48"></span>
+                                                            </div>
+                                                            <div class="counter-title text-white">
+                                                                Meter Status
+                                                            </div>
+                                                            <h5 class="mt-3 text-white">@item.MeterStatus</h5>
+                                                        </div>
+                                                        <div class="progress progress-xs r-0">
+                                                            <div class="progress-bar mygreentwo " role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end from here for main cards -->
+                                        </div>
+                                        <!-- end here for main cards -->
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade center" id="v-pills-payments" role="tabpanel" aria-labelledby="v-pills-payments-tab">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                        
+
+                                                <!-- Meter details from here  -->
+                                                <div class="collapse show" id="invoiceCard">
+                                               
+                                                        <div class="row my-3">
+                                                            <div class="col-lg-4">
+                                                                <div class="counter-box mygrey r-3">
+                                                                    <div class="p-4">
+                                                                        <div class="float-right">
+                                                                            <span class="icon icon-supervisor_account text-white s-48"></span>
+                                                                        </div>
+                                                                        <div class="counter-title text-white">Account Number</div>
+                                                                        <h5 class=" mt-3 text-white">@item.AccountNumber</h5>
+                                                                    </div>
+                                                                    <div class="progress progress-xs r-0">
+                                                                        <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="counter-box mygrey r-3">
+                                                                    <div class="p-4">
+                                                                        <div class="float-right">
+                                                                            <span class="icon icon-supervisor_account text-white s-48"></span>
+                                                                        </div>
+                                                                        <div class="counter-title text-white ">Tariff</div>
+                                                                        <h5 class="mt-3 text-white">@item.Tariff</h5>
+                                                                    </div>
+                                                                    <div class="progress progress-xs r-0">
+                                                                        <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            @*<div class="col-lg-3">
+                                                                    <div class="mygrey counter-box">
+                                                                        <div class="p-4">
+                                                                            <div class="float-right">
+                                                                                <span class="icon icon-sim_card text-white s-48"></span>
+                                                                            </div>
+                                                                            <div class="counter-title text-white">Sim card number</div>
+                                                                            <h5 class="mt-3 text-white">@item.SIMCardNumber</h5>
+                                                                        </div>
+                                                                        <div class="progress progress-xs r-0">
+                                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>*@
+                                                            <div class="col-lg-4">
+                                                                <div class="mygreentwo counter-box">
+                                                                    <div class="p-4">
+                                                                        <div class="float-right">
+                                                                            <span class="icon icon-cloud_queue text-white s-48"></span>
+                                                                        </div>
+                                                                        <div class="counter-title text-white">Account Status</div>
+                                                                        <h5 class=" mt-3 text-white">@item.AccountStatus</h5>
+                                                                    </div>
+                                                                    <div class="progress progress-xs r-0">
+                                                                        <div class="progress-bar mygreentwo" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="fade col-lg-3"></div>
+
+                                                        <!--Style Start 2-->
+                                                        <div class="row my-3 mt-5">
+                                                            @*<div class="col-lg-3">
+                                                                    <div class="counter-box mygrey r-3">
+                                                                        <div class="p-4">
+                                                                            <div class="float-right">
+                                                                                <span class="icon icon-note-list  text-white s-48"></span>
+                                                                            </div>
+                                                                            <div class="counter-title text-white">IMEI number</div>
+                                                                            <h5 class=" mt-3 text-white">@item.IMENumber</h5>
+                                                                        </div>
+                                                                        <div class="progress progress-xs r-0">
+                                                                            <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>*@
+                                                            <div class="col-lg-4">
+                                                                <div class="counter-box mygrey r-3">
+                                                                    <div class="p-4">
+                                                                        <div class="float-right">
+                                                                            <span class="icon icon-my_location text-white s-48"></span>
+                                                                        </div>
+                                                                        <div class="counter-title text-white ">Location</div>
+                                                                        <h6 class=" mt-3 text-white">@item.OwnerAddress</h6>
+                                                                    </div>
+                                                                    <div class="progress progress-xs r-0">
+                                                                        <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="mygrey counter-box">
+                                                                    <div class="p-4">
+                                                                        <div class="float-right">
+                                                                            <span class="icon icon-stop-watch3 s-48 text-white"></span>
+                                                                        </div>
+                                                                        <div class="counter-title text-white">Meter Code</div>
+                                                                        <h5 class="mt-3 text-white">@item.MeterCode</h5>
+                                                                    </div>
+                                                                    <div class="progress progress-xs r-0">
+                                                                        <div class="progress-bar mygrey" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="mygreen counter-box">
+                                                                    <div class="p-4">
+                                                                        <div class="float-right">
+                                                                            <span class="icon icon-cloud_queue s-48 text-white"></span>
+                                                                        </div>
+                                                                        <div class="counter-title text-white">Meter Status</div>
+                                                                        <h5 class=" mt-3 text-white">@item.MeterStatus</h5>
+                                                                    </div>
+                                                                    <div class="progress progress-xs r-0">
+                                                                        <div class="progress-bar mygreentwo" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Meter to details from here  -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                       
+                  
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <!-- page description here -->
+            <div class="card no-b shadow">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-3">
+                            <h1>Meter Search</h1>
+                            <h6>Use this page to search for a meter by Meter code</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of page description here -->
+
+
+            <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="card r-0 shadow">
+                            <div class="table-responsive">
+                                <form asp-action="Meters" asp-controller="WSP" asp-antiforgery="true" method="post">
+                                    <div class="form-group relative brand-wrapper sticky b-b p-3">
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="input-group">
+                                                    <input name="ssearchTerm" id="ssearchTerm" class="form-control has-right-icon" placeholder="Search" type="text" />
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-primary">Search</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+
+}

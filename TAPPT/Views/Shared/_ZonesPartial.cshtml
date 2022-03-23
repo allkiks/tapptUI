@@ -1,0 +1,165 @@
+﻿@model IEnumerable<ZoneViewModel>
+@if (Model.Any())
+{
+
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="tab-pane animated fadeInUpShort show active"
+                 id="v-pills-all"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-all-tab">
+                <div class="card no-b shadow ">
+
+                    <div class="card-body mt-2 ">
+                        <div class="row my-3 ">
+                            <div class="col-md-12">
+                                <h1>Zones</h1>
+                                <h6>The table below displays your current zones </h6>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3 mt-5">
+                    <div class="col-md-12">
+                        <div class="card r-0 shadow">
+                            <div class="panel-heading">
+                                <div class="panel-body text-center panelsetup">
+                                    <h4>Zones</h4>
+                                    <hr />
+                                </div>
+                            </div>
+                            @*<div class="table-responsive datatablestyle">
+        <table id="tryy" class="table table-striped table-bordered display nowrap" style="width:100%">
+            <thead>
+                    <tr class="no-b">
+
+                        <th>
+                            <div class="d-none d-lg-block">
+                                Name
+                            </div>
+                        </th>
+                        <th>
+                            <div class="d-none d-lg-block">Action</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                <div class="d-flex">
+                                    @item.Name
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="d-none d-lg-block">
+                                    <a href="/WSP/EditZone/@item.Id"
+                                       class="btn btn-primary btn-sm ml-5">Edit</a>
+                                    </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>*@
+                            <div class="table-responsive datatablestyle">
+                                <table id="tryy" class="table table-striped table-bordered display nowrap" style="width:100%">
+                                    <thead>
+                                        <tr class="no-b">
+                                            <th>
+                                                <div class="d-none d-lg-block">Zone name</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-none d-lg-block">Action</div>
+                                            </th>
+                                           
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <div>
+                                                                <strong> @item.Name</strong>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="/WSP/EditZone/@item.Id">
+                                                        <button type="button" class="btn btn-primary btn-sm ml-5">View details</button>
+                                                    </a>
+                                                </td>
+                                               
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    @*<tfoot>
+                    <tr class="no-b">
+                        <th>
+                            <div class="d-none d-lg-block">Meter Code</div>
+                        </th>
+                        <th>
+                            <div class="d-none d-lg-block">Geo Cordinates</div>
+                        </th>
+                        <th>
+                            <div class="d-none d-lg-block">Last Transmitted</div>
+                        </th>
+                        <th>
+                            <div class="d-none d-lg-block">Accumulated Flow</div>
+                        </th>
+                        <th>
+                            <div class="d-none d-lg-block">View Details</div>
+                        </th>
+                    </tr>
+                </tfoot>*@
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+
+            </div>
+            <div class="tab-pane animated fadeInUpShort"
+                 id="v-pills-buyers"
+                 role="tabpanel"
+                 aria-labelledby="v-pills-buyers-tab"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Zone List</h1>
+                            <h6>No zones yet ,<a href="/WSP/AddZone"> click here to add a zone </a></h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane animated fadeInUpShort"
+             id="v-pills-buyers"
+             role="tabpanel"
+             aria-labelledby="v-pills-buyers-tab"></div>
+    </div>
+
+}

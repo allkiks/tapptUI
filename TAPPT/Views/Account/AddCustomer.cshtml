@@ -1,0 +1,336 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "AddCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid animatedParent animateOnce">
+    <div class="animated fadeInUpShort">
+        <div class="tab-content my-3" id="v-pills-tabContent">
+            <div class="card no-b shadow  ">
+
+                <div class="card-body">
+                    <div class="row my-3 ">
+                        <div class="col-md-12">
+                            <h1>Add A New Customer</h1>
+                            <h6>Use this page to add a customer and attach a meter to the customer</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-3 ">
+            <div class="col-md-12 mt-3">
+                <form asp-action="AddCustomer" asp-controller="Account" method="post" asp-antiforgery="true">
+                    <div class="card no-b shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Fill In The Details Below To Add A New Customer
+                            </h5>
+                            @{
+                                await Html.RenderPartialAsync("_ValidationErrorPartial");
+                            }
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-row mt-1">
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="email" class="col-form-label s-12">
+                                                <i class="icon-account_box mr-2 text-mygreen"></i>First
+                                                Name
+                                            </label>
+                                            <input id="FirstName"
+                                                   asp-for="FirstName"
+                                                   placeholder="Enter Customer's First Name"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="phone" class="col-form-label s-12">
+                                                <i class="icon-account_box mr-2 text-mygreen"></i>Middle
+                                                Name (optional)
+                                            </label>
+                                            <input id="MiddleName"
+                                                   asp-for="MiddleName"
+                                                   placeholder="Enter Customer's Middle Name"
+                                                   class="form-control r-0 light s-12 "
+                                                   type="text" />
+                                            <span asp-validation-for="MiddleName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="mobile" class="col-form-label s-12">
+                                                <i class="icon-account_box mr-2 text-mygreen"></i>Last
+                                                Name
+                                            </label>
+                                            <input id="LastName"
+                                                   asp-for="LastName"
+                                                   placeholder="Enter Customer's Last Name"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="LastName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6 m-0">
+                                            <label for="national-ID" class="col-form-label s-12">
+                                                <i class="icon-id-card mr-2 text-mygreen"></i>National ID number
+                                            </label>
+                                            <input id="IdNumber"
+                                                   asp-for="IdNumber"
+                                                   placeholder="Enter Customer's National ID number"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="IdNumber" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-md-6 m-0">
+                                            <label for="user-email" class="col-form-label s-12">
+                                                <i class="icon-id-card-o mr-2 text-mygreen"></i>Phone Number
+                                            </label>
+                                            <input id="PhoneNumber"
+                                                   asp-for="PhoneNumber"
+                                                   placeholder="Enter Customer's Phone Number"
+                                                   class="form-control r-0 light s-12"
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mt-5">
+                                        <div class="form-group col-md-3 m-0">
+                                            <label for="address" class="col-form-label s-12"><i class="icon-email text-mygreen mr-2"></i>Postal address</label>
+                                            <input type="text"
+                                                   asp-for="PostaAddress"
+                                                   class="form-control r-0 light s-12"
+                                                   id="PostaAddress"
+                                                   placeholder="Enter Postal Address" />
+                                            <span asp-validation-for="PostaAddress" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-md-3 m-0">
+                                            <label for="mobile" class="col-form-label s-12">
+                                                <i class="icon-room mr-2 text-mygreen"></i>Residence
+
+                                            </label>
+                                            <input id="location"
+                                                   asp-for="Residence"
+                                                   placeholder="eg: Nairobi"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="Residence" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-md-3 m-0">
+                                            <label for="phone" class="col-form-label s-12"><i class="icon-email text-mygreen mr-2"></i>Email</label>
+                                            <input id="EmailAddress"
+                                                   asp-for="EmailAddress"
+                                                   placeholder="Customers Email"
+                                                   class="form-control r-0 light s-12 "
+                                                   type="text" />
+                                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-group col-md-3 m-0">
+                                            <label for="address" class="col-form-label s-12"><i class="icon-email text-mygreen mr-2"></i>Select Tariff</label>
+                                            <select class="form-control r-0 light s-12 " required asp-for="TariffId">
+                                                <option value=" ">Select Customer Tariff</option>
+                                                <option value="1">Residential/Domestic</option>
+
+                                            </select>
+                                            <span asp-validation-for="TariffId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                @*<div class="col-md-3 offset-md-1">
+                                        <span>
+                                            <i class="icon-user-plus mr-2 s-128 text-mygreen"></i>
+                                        </span>
+                                    </div>*@
+                            </div>
+
+
+                            <hr class="">
+                            <div class="card no-b mt-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Fill In The Details Below To Attach A Meter To The Customer</h5>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 m-0">
+                                                    <label for="name" class="col-form-label s-12">Meter Code</label>
+                                                    <input id="MeterCode"
+                                                           asp-for="MeterCode"
+                                                           placeholder="Enter Meter Code"
+                                                           class="form-control r-0 light s-12 "
+                                                           required
+                                                           type="text" />
+                                                    <span asp-validation-for="MeterCode" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group col-md-6 m-0">
+                                                    <label for="name" class="col-form-label s-12">ZONE</label>
+                                                    <select asp-for="ZoneId" name="Zones" id="Zones" onchange="getMeters()" class="form-control" required>
+                                                        Select Zone
+                                                        <option id="Wait" value="">please wait....</option>
+                                                    </select>
+                                                    <span asp-validation-for="ZoneId" class="text-danger"></span>
+                                                </div>
+                                                @*<div class="form-group col-md-4 m-0">
+                                                    <label for="name" class="col-form-label s-12">BOUQUET</label>
+                                                    <select asp-for="BouquetId" name="Bouquets" id="Bouquets" onchange="getBouquets()" class="form-control" required>
+                                                        Select Bouquet
+                                                        <option id="Wait2" value="">please wait....</option>
+                                                    </select>
+                                                    <span asp-validation-for="BouquetId" class="text-danger"></span>
+                                                </div>*@
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 m-0">
+                                                    <label for="cnic" class="col-form-label s-12">
+                                                        <i class="icon-id-card text-mygreen"></i> Simcard Number
+                                                    </label>
+                                                    <input id="SIMCardNumber"
+                                                           asp-for="SIMCardNumber"
+                                                           placeholder="Enter Neter Simcard Number"
+                                                           class="form-control r-0 light s-12"
+                                                           required
+                                                           type="text" />
+                                                    <span asp-validation-for="SIMCardNumber" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group col-md-6 m-0">
+                                                    <label for="dob" class="col-form-label s-12">
+                                                        <i class="icon-id-card mr-2 text-mygreen"></i>Meter
+                                                        IMEI
+                                                    </label>
+                                                    <input id="IMENumber"
+                                                           asp-for="IMENumber"
+                                                           placeholder="Enter Meter IMEI Number"
+                                                           class="form-control r-0 light s-12 datePicker"
+                                                           data-format-date="Y/m/d"
+                                                           required
+                                                           type="text" />
+                                                    <span asp-validation-for="IMENumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @*<div class="col-md-3 offset-md-1">
+                                                <span>
+                                                    <i class="icon icon icon-calculator s-128 text-mygreen"></i>
+                                                </span>
+                                            </div>*@
+                                    </div>
+
+                                    <div class="form-row mt-1">
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="email" class="col-form-label s-12"><i class="icon-room text-mygreen mr-2"></i>Longitude</label>
+                                            <input id="Longitude"
+                                                   asp-for="Longitude"
+                                                   placeholder="Enter The Device Simcard Number "
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="Longitude" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="phone" class="col-form-label s-12"><i class="icon-room mr-2 text-mygreen"></i>Lattitude</label>
+                                            <input id="Latitude"
+                                                   asp-for="Latitude"
+                                                   placeholder="Enter Device Location"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="Latitude" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-md-4 m-0">
+                                            <label for="mobile" class="col-form-label s-12"><i class="icon-room mr-2 text-mygreen"></i>IMSI Number</label>
+                                            <input id="IMSI"
+                                                   asp-for="IMSI"
+                                                   placeholder="eg: 460001357924680"
+                                                   class="form-control r-0 light s-12 "
+                                                   required
+                                                   type="text" />
+                                            <span asp-validation-for="IMENumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="card-body ">
+                                    <button type="submit" class="btn btn-primary btn-lg col text-center ">
+                                        <i class="icon-save mr-2 "></i>Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/assets/js/jquery.min.js"></script>
+<script type="text/JavaScript">
+     $(document).ready(function () {
+         getZones();
+     });
+    function getZones() {
+    //get a reference to the select element
+        $zones = $('#Zones');
+        var baseUrl = "https://TAPPT2dev.azurewebsites.net/api/";
+    //request the JSON data and parse into the select element
+    $.ajax({
+        type: 'GET',
+        url: baseUrl.concat(`wsp/Zones/@ViewBag.Id`),
+        dataType: 'JSON',
+        success: function (data) {
+            //clear the current content of the select
+            //$zones.html('');
+            //iterate over the data and append a select option
+            $.each(data, function (index, val) {
+                $('#Wait').html("Select Zone");
+                $zones.append(`<option id=${val.id}  value='${val.id}'+ >${val.name}</option>`);
+            })
+        },
+        error: function () {
+            //if there is an error append a 'none available' option
+            $zones.html('<option id="-1">none available</option>');
+        }
+    });
+}
+</script>
+<script type="text/JavaScript">
+     $(document).ready(function () {
+         getBouquets();
+     });
+    function getBouquets() {
+    //get a reference to the select element
+        $bouquets = $('#Bouquets');
+        var baseUrl = "https://TAPPT2dev.azurewebsites.net/api/";
+    //request the JSON data and parse into the select element
+    $.ajax({
+        type: 'GET',
+        url: baseUrl.concat(`admin/GetBouquets`),
+        dataType: 'JSON',
+        success: function (data) {
+            //clear the current content of the select
+            //$zones.html('');
+            //iterate over the data and append a select option
+            $.each(data, function (index, val) {
+                $('#Wait2').html("Select Bouquet");
+                $bouquets.append(`<option id=${val.id}  value='${val.id}'+ >${val.name}</option>`);
+            })
+        },
+        error: function () {
+            //if there is an error append a 'none available' option
+            $bouquets.html('<option id="-1">none available</option>');
+        }
+    });
+}
+</script>
+
